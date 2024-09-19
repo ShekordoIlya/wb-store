@@ -1,0 +1,14 @@
+{
+  "name": "wb-store",
+  "version": "1.0.0",
+  "description": "Wildberries store",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ilya Shekordo, Polina Belash, Sergey Mirsaitov",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.79.1"
+  }
+}
