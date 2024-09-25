@@ -4,11 +4,14 @@
   "description": "Wildberries store",
   "main": "index.js",
   "scripts": {
+    "dev": "parcel ./src/index.html --no-cache",
+    "build": "parcel build ./src/index.html --no-cache",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ilya Shekordo, Polina Belash, Sergey Mirsaitov",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.12.0",
     "parcel": "^2.12.0",
     "sass": "^1.79.1"
   }

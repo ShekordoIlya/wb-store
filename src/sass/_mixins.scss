@@ -1,0 +1,15 @@
+@mixin header-button-shape {
+  border: 1px solid #553365;
+  border-radius: 20px;
+  background: rgb(151,158,158);
+  background: linear-gradient(0deg, rgb(114, 72, 159) 0%, rgba(215, 172, 223, 0.9) 100%);
+  padding: 10px;
+  transition: 0.4s ease;
+  cursor: pointer;
+  &:hover {
+    transform: scale(0.99);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+}
