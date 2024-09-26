@@ -5,9 +5,9 @@ const containerCards = document.createElement("div");
 
 const cardsWrapper = document.createElement("div");
 
-let cards = [];
-
-window.addEventListener("DOMContentLoaded", () => {});
+window.addEventListener("DOMContentLoaded", () => {
+  createCard();
+});
 
 // async function getData() {
 //   const res = await fetch(
@@ -21,11 +21,19 @@ window.addEventListener("DOMContentLoaded", () => {});
 
 // getData();
 
-const a = fetch("https://66f59c9b436827ced97492c3.mockapi.io/wb-store/cards")
-  .then((response) => response.json())
-  .then((data) => console.log(data));
+let cards = [];
 
-function createCard(cards) {
+fetch("https://66f59c9b436827ced97492c3.mockapi.io/wb-store/cards")
+  .then((response) => response.json())
+  .then((data) =>
+    data.forEach((item) => {
+      console.log(item);
+    })
+  );
+
+// cards.forEach(() => console.log());
+
+function createCard() {
   //Cards wrappers
   const cardOneWrapper = document.createElement("div");
   // const cardTwoWrapper = document.createElement("div");
