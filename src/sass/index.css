@@ -1,0 +1,42 @@
+.container {
+  max-width: 1170px;
+  margin: auto;
+}
+
+header {
+  background-color: #be95f6;
+  padding: 30px 0;
+}
+
+.header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-wrap {
+  border: 1px solid #553365;
+  border-radius: 20px;
+  background: rgb(151, 158, 158);
+  background: linear-gradient(0deg, rgb(114, 72, 159) 0%, rgba(215, 172, 223, 0.9) 100%);
+  padding: 20px;
+  transition: 0.4s ease;
+  cursor: pointer;
+}
+.logo-wrap:hover {
+  transform: scale(1.1);
+}
+.logo-wrap .logo-link {
+  font-size: 24px;
+  color: black;
+  font-weight: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}/*# sourceMappingURL=index.css.map */
