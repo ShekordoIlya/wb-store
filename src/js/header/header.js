@@ -1,5 +1,6 @@
 import { searchField } from "./searchField";
 import { cartButton, modal } from "./cart";
+// import { sectionCards } from "../cards/cardsTest";
 
 // create structure(global)
 
