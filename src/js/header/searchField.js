@@ -30,6 +30,24 @@ clearBtn.addEventListener("click", function () {
   searchInput.focus();
 });
 
+// const url = "https://66f59c9b436827ced97492c3.mockapi.io/wb-store/cards";
+
+// let products = [];
+
+// async function getData() {
+//   try {
+//     const response = await fetch(url);
+//     const data = await response.json();
+
+//   } catch (error) {
+//     console.error("Error fetching data:", error);
+//   }
+// }
+
+// getData();
+
+// console.log(products);
+
 // function getData() {}
 
 export { searchField };
