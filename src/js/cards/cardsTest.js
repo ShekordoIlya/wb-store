@@ -87,7 +87,7 @@ function createCard(card) {
   cardPriceOne.textContent = card.price;
   //Item name
   const cardOneItemName = document.createElement("p");
-  cardOneItemName.textContent = card.name;
+  cardOneItemName.textContent = card.productname;
 
   //Adding into html
   //Getting body element

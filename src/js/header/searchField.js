@@ -7,7 +7,14 @@ const searchInput = document.createElement("input");
 searchInput.type = "text";
 searchInput.value = "Search ...";
 searchInput.id = "search-input";
-searchField.append(searchInput, clearBtn);
+
+const searchOptions = document.createElement("ul");
+searchOptions.className = "options";
+searchOptions.style.display = "none";
+
+searchField.append(searchInput, clearBtn, searchOptions);
+
+const word = searchInput.value;
 
 searchInput.setAttribute("autocomplete", "off");
 
@@ -16,7 +23,6 @@ searchInput.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     searchInput.value = "";
     event.preventDefault();
-    getData(searchInput.value);
   }
 });
 
@@ -27,27 +33,62 @@ searchInput.addEventListener("focus", () => {
 // Handle clear button click
 clearBtn.addEventListener("click", function () {
   searchInput.value = "";
+  searchOptions.style.display = "none";
   searchInput.focus();
 });
 
-// const url = "https://66f59c9b436827ced97492c3.mockapi.io/wb-store/cards";
+const url = "https://66f59298436827ced9746d10.mockapi.io/wb-store/marketplace/";
 
-// let products = [];
+searchInput.addEventListener("input", function () {
+  word.toLowerCase();
+  searchOptions.innerHTML = "";
 
-// async function getData() {
-//   try {
-//     const response = await fetch(url);
-//     const data = await response.json();
+  fetch(url, {
+    method: "GET",
+    headers: { "content-type": "application/json" },
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+    })
+    .then((data) => {
+      const matches = data.filter((product) =>
+        product.productname.toLowerCase().includes(word)
+      );
+      console.log(matches);
+      displayResults(matches);
+    })
+    .catch((error) => {
+      console.log("error", error);
+    });
+});
 
-//   } catch (error) {
-//     console.error("Error fetching data:", error);
-//   }
-// }
+function displayResults(arr) {
+  if (word.length === 0) {
+    searchOptions.style.display = "none";
+    return;
+  }
 
-// getData();
-
-// console.log(products);
-
-// function getData() {}
+  if (arr.length > 0) {
+    arr.forEach((match) => {
+      const li = document.createElement("li");
+      li.classList.add("option-item");
+      li.textContent = match.name;
+      li.addEventListener("click", () => {
+        searchInput.value = match.name;
+        searchOptions.style.display = "none";
+      });
+      searchOptions.appendChild(li);
+    });
+    searchOptions.style.display = "block";
+  } else {
+    const noMatches = document.createElement("li");
+    noMatches.classList.add("no-matches");
+    noMatches.textContent = "No Matches";
+    searchOptions.appendChild(noMatches);
+    searchOptions.style.display = "block";
+  }
+}
 
 export { searchField };
