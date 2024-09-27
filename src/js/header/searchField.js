@@ -12,6 +12,15 @@ const searchOptions = document.createElement("ul");
 searchOptions.className = "options";
 searchOptions.style.display = "none";
 
+const li = document.createElement("li");
+li.textContent = "1";
+
+const noMatches = document.createElement("li");
+noMatches.classList.add("no-matches");
+noMatches.textContent = "No Matches";
+noMatches.style.display = "none";
+
+searchOptions.appendChild(li, noMatches);
 searchField.append(searchInput, clearBtn, searchOptions);
 
 const word = searchInput.value;
@@ -33,62 +42,48 @@ searchInput.addEventListener("focus", () => {
 // Handle clear button click
 clearBtn.addEventListener("click", function () {
   searchInput.value = "";
-  searchOptions.style.display = "none";
   searchInput.focus();
 });
 
+const cardsArr = [];
 const url = "https://66f59298436827ced9746d10.mockapi.io/wb-store/marketplace/";
 
-searchInput.addEventListener("input", function () {
-  word.toLowerCase();
-  searchOptions.innerHTML = "";
+searchInput.addEventListener("input", async () => {
+  const meta = await fetch(url);
+  const data = await meta.json();
 
-  fetch(url, {
-    method: "GET",
-    headers: { "content-type": "application/json" },
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .then((data) => {
-      const matches = data.filter((product) =>
-        product.productname.toLowerCase().includes(word)
-      );
-      console.log(matches);
-      displayResults(matches);
-    })
-    .catch((error) => {
-      console.log("error", error);
-    });
+  data.forEach((item) => {
+    cardsArr.push(item);
+  });
 });
 
-function displayResults(arr) {
-  if (word.length === 0) {
-    searchOptions.style.display = "none";
-    return;
-  }
-
-  if (arr.length > 0) {
-    arr.forEach((match) => {
-      const li = document.createElement("li");
-      li.classList.add("option-item");
-      li.textContent = match.name;
-      li.addEventListener("click", () => {
-        searchInput.value = match.name;
-        searchOptions.style.display = "none";
-      });
-      searchOptions.appendChild(li);
-    });
-    searchOptions.style.display = "block";
-  } else {
-    const noMatches = document.createElement("li");
-    noMatches.classList.add("no-matches");
-    noMatches.textContent = "No Matches";
-    searchOptions.appendChild(noMatches);
-    searchOptions.style.display = "block";
-  }
+function getOptions(word, cardsArr) {
+  return cardsArr.filter((p) => {
+    const regex = new RegExp(word, "gi");
+    return p.productname.match(regex);
+  });
 }
+
+function displayOptions() {
+  console.log("this.value >> ", this.value);
+
+  const options = getOptions(this.value, cardsArr);
+
+  const html = options
+    .map((card) => {
+      const regex = new RegExp(this.value, "gi");
+      const productName = card.productname.replace(regex, `${this.value}`);
+      searchOptions.style.display = "block";
+      li.classList.add("option-item");
+      return (li.textContent = `${productName}`);
+    })
+    .slice(0, 10)
+    .join("");
+
+  searchOptions.innerHTML = this.value ? html : null;
+}
+
+searchInput.addEventListener("change", displayOptions);
+searchInput.addEventListener("keyup", displayOptions);
 
 export { searchField };
