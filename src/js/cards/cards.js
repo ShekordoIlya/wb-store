@@ -7,20 +7,19 @@ const cardsWrapper = document.createElement("div");
 
 const bodyElement = document.querySelector("body");
 
-let cards = [];
-
 window.addEventListener("DOMContentLoaded", () => {
-  addData();
+  getData();
 });
 
-const url = "https://66f59298436827ced9746d10.mockapi.io/wb-store/marketplace";
+const url = "https://66f59c9b436827ced97492c3.mockapi.io/wb-store/cards";
 async function getData() {
   const meta = await fetch(url);
   const data = await meta.json();
-  console.log(data.name);
+  // console.log(data.name);
   // addData();
+
+  data.forEach((element) => console.log(element.images));
 }
-getData();
 
 fetch(url, {
   method: "GET",
@@ -61,7 +60,8 @@ function createCard(card) {
 
   //Item image
   const cardImgOne = document.createElement("img");
-  cardImgOne.src = card.src;
+  cardImgOne.src = card.images;
+  cardImgOne.alt = "spoon";
 
   //Item discount
   const discountCardOne = document.createElement("p");
