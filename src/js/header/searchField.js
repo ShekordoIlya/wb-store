@@ -12,18 +12,12 @@ const searchOptions = document.createElement("ul");
 searchOptions.className = "options";
 searchOptions.style.display = "none";
 
-const li = document.createElement("li");
-li.textContent = "1";
-
 const noMatches = document.createElement("li");
 noMatches.classList.add("no-matches");
 noMatches.textContent = "No Matches";
 noMatches.style.display = "none";
 
-searchOptions.appendChild(li, noMatches);
 searchField.append(searchInput, clearBtn, searchOptions);
-
-const word = searchInput.value;
 
 searchInput.setAttribute("autocomplete", "off");
 
@@ -42,13 +36,18 @@ searchInput.addEventListener("focus", () => {
 // Handle clear button click
 clearBtn.addEventListener("click", function () {
   searchInput.value = "";
+  searchOptions.style.display = "none";
   searchInput.focus();
 });
 
 const cardsArr = [];
-const url = "https://66f59298436827ced9746d10.mockapi.io/wb-store/marketplace/";
+const url = "https://66f59c9b436827ced97492c3.mockapi.io/wb-store/cards";
+let inputLength = 0;
 
 searchInput.addEventListener("input", async () => {
+  inputLength = searchInput.value.length;
+  updateVisibility();
+
   const meta = await fetch(url);
   const data = await meta.json();
 
@@ -60,27 +59,58 @@ searchInput.addEventListener("input", async () => {
 function getOptions(word, cardsArr) {
   return cardsArr.filter((p) => {
     const regex = new RegExp(word, "gi");
-    return p.productname.match(regex);
+    return p.name.match(regex);
   });
 }
 
 function displayOptions() {
-  console.log("this.value >> ", this.value);
+  const inputValue = this.value.trim().toLowerCase();
+  console.log("this.value >> ", inputValue);
+  updateVisibility();
 
-  const options = getOptions(this.value, cardsArr);
+  if (!inputValue) {
+    searchOptions.style.display = "none";
+    searchOptions.innerHTML = "";
+    return;
+  }
 
-  const html = options
-    .map((card) => {
-      const regex = new RegExp(this.value, "gi");
-      const productName = card.productname.replace(regex, `${this.value}`);
-      searchOptions.style.display = "block";
-      li.classList.add("option-item");
-      return (li.textContent = `${productName}`);
-    })
-    .slice(0, 10)
-    .join("");
+  const options = getOptions(inputValue, cardsArr);
 
-  searchOptions.innerHTML = this.value ? html : null;
+  searchOptions.innerHTML = "";
+  if (options.length === 0) {
+    searchOptions.innerHTML = '<li class="no-matches">No matches...</li>';
+    searchOptions.style.display = "block";
+  } else {
+    const html = options
+      .map((card) => {
+        const regex = new RegExp(inputValue, "gi");
+        const productName = card.name.replace(regex, `${inputValue}`);
+
+        return `<li class="option-item">${productName}</li>`;
+      })
+      .slice(0, 6)
+      .join("");
+
+    searchOptions.innerHTML = html;
+    searchOptions.style.display = "block";
+  }
+  updateVisibility();
+}
+
+function updateVisibility() {
+  const elements = searchOptions.querySelectorAll(".option-item");
+
+  const seenTexts = new Set();
+
+  elements.forEach((element) => {
+    const text = element.textContent.trim();
+
+    if (seenTexts.has(text)) {
+      element.remove();
+    } else {
+      seenTexts.add(text);
+    }
+  });
 }
 
 searchInput.addEventListener("change", displayOptions);
