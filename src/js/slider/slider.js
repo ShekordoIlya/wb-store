@@ -29,11 +29,11 @@ document.body.appendChild(sliderContainer);
 
 // Массив с картинками 
 const images = [
-    './img/slide-1.jpg',  
-    './img/slide-2.jpg',  
-    './img/slide-3.jpg',  
-    './img/slide-4.jpg',  
-    './img/slide-5.jpg'   
+    '../../img/ImgSlider/slide-1.jpg',  
+    '../../img/ImgSlider/slide-2.jpg',  
+    '../../img/ImgSlider/slide-3.jpg',  
+    '../../img/ImgSlider/slide-4.jpg',  
+    '../../img/ImgSlider/slide-5.jpg'   
 ];
 
 // Добавляем изображения и индикаторы
