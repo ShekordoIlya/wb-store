@@ -1,10 +1,5 @@
-.section-cards {
-  background-color: #efebf5;
-}
-
 .container-cards {
-  max-width: 1170px;
-  margin: auto;
+  @include set-on-container;
 }
 
 .cards-wrapper {
