@@ -1,3 +1,6 @@
+import { updateVisibility } from "./search_updateVisibility";
+import { displayOptions } from "./search_displayOptions";
+
 const searchField = document.createElement("div");
 searchField.className = "search-field-wrap";
 const clearBtn = document.createElement("div");
@@ -56,64 +59,7 @@ searchInput.addEventListener("input", async () => {
   });
 });
 
-function getOptions(word, cardsArr) {
-  return cardsArr.filter((p) => {
-    const regex = new RegExp(word, "gi");
-    return p.name.match(regex);
-  });
-}
-
-function displayOptions() {
-  const inputValue = this.value.trim().toLowerCase();
-  console.log("this.value >> ", inputValue);
-  updateVisibility();
-
-  if (!inputValue) {
-    searchOptions.style.display = "none";
-    searchOptions.innerHTML = "";
-    return;
-  }
-
-  const options = getOptions(inputValue, cardsArr);
-
-  searchOptions.innerHTML = "";
-  if (options.length === 0) {
-    searchOptions.innerHTML = '<li class="no-matches">No matches...</li>';
-    searchOptions.style.display = "block";
-  } else {
-    const html = options
-      .map((card) => {
-        const regex = new RegExp(inputValue, "gi");
-        const productName = card.name.replace(regex, `${inputValue}`);
-
-        return `<li class="option-item">${productName}</li>`;
-      })
-      .slice(0, 6)
-      .join("");
-
-    searchOptions.innerHTML = html;
-    searchOptions.style.display = "block";
-  }
-  updateVisibility();
-}
-
-function updateVisibility() {
-  const elements = searchOptions.querySelectorAll(".option-item");
-
-  const seenTexts = new Set();
-
-  elements.forEach((element) => {
-    const text = element.textContent.trim();
-
-    if (seenTexts.has(text)) {
-      element.remove();
-    } else {
-      seenTexts.add(text);
-    }
-  });
-}
-
 searchInput.addEventListener("change", displayOptions);
 searchInput.addEventListener("keyup", displayOptions);
 
-export { searchField };
+export { searchField, searchOptions, cardsArr };
