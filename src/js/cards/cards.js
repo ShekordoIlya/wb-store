@@ -46,15 +46,16 @@ function createCard(card) {
 
   //Item discount
   const discountCard = document.createElement("p");
-  discountCard.textContent = card.discount;
+  discountCard.textContent = card.discount + " byn";
 
   //Cards buttons
   const cardBtn = document.createElement("button");
   cardBtn.type = "button";
+  cardBtn.textContent = "Add to cart";
 
   //Item price
   const cardPrice = document.createElement("p");
-  cardPrice.textContent = card.price;
+  cardPrice.textContent = card.price + " byn";
   //Item name
   const cardItemName = document.createElement("p");
   cardItemName.textContent = card.name;

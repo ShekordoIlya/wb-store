@@ -1,7 +1,8 @@
-@import './_cdn.scss';
-@import './_mixins.scss';
-@import './var.scss';
-@import './header.scss';
+@import "./_cdn.scss";
+@import "./_mixins.scss";
+@import "./var.scss";
+@import "./header.scss";
+@import "./cards.scss";
 
 * {
   margin: 0;
@@ -11,7 +12,3 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-
-
-
-
