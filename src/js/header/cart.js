@@ -1,3 +1,6 @@
+import { showModal, closeModal } from "./modalShowClose";
+import { getItemFromStorage, setItemsInStorage } from "./cart_storageGetSet";
+
 const body = document.querySelector("body");
 
 // button for cart
@@ -7,7 +10,7 @@ cartButton.id = "cart-button";
 cartButton.type = "button";
 cartButton.textContent = "Cart";
 
-// create modal cart
+// create modal, cart content
 
 const modal = document.createElement("div");
 modal.className = "modal";
@@ -47,17 +50,10 @@ cartHead.append(cartTitle, cartClear, close);
 modalContent.append(cartHead, cartStuff, totalSum);
 modal.append(modalContent);
 
-function showModal() {
-  body.classList.add("modal-open");
-  modal.style.display = "block";
-}
-
-function closeModal() {
-  body.classList.remove("modal-open");
-  modal.style.display = "none";
-}
-
+// listeners
 close.addEventListener("click", closeModal);
 cartButton.addEventListener("click", showModal);
 
-export { modal, cartButton };
+const cartAdded = getItemFromStorage();
+
+export { modal, cartButton, body, cartStuff, cartAdded };
