@@ -18,6 +18,11 @@
   }
 }
 
+@mixin set-on-container {
+  max-width: 1170px;
+  margin: auto;
+}
+
 @mixin flex-container {
   display: flex;
   align-items: normal;
