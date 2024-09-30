@@ -9,7 +9,7 @@ export function createItem(productItem) {
   itemContent.className = "item-content";
 
   const itemImg = document.createElement("img");
-  img.src = productItem.image;
+  itemImg.src = productItem.image;
 
   const itemText = document.createElement("div");
   itemText.className = "item-text";
