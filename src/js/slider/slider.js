@@ -29,11 +29,11 @@ document.body.appendChild(sliderContainer);
 
 // Массив с картинками
 const images = [
-    '../../img/ImgSlider/slide-1.jpg',  
-    '../../img/ImgSlider/slide-2.jpg',  
-    '../../img/ImgSlider/slide-3.jpg',  
-    '../../img/ImgSlider/slide-4.jpg',  
-    '../../img/ImgSlider/slide-5.jpg'   
+    'https://images.pexels.com/photos/5885454/pexels-photo-5885454.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',  
+    'https://images.pexels.com/photos/5993378/pexels-photo-5993378.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',  
+    'https://images.pexels.com/photos/6303683/pexels-photo-6303683.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',  
+    'https://images.pexels.com/photos/6249674/pexels-photo-6249674.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',  
+    'https://images.pexels.com/photos/6238122/pexels-photo-6238122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'   
 ];
 
 // Добавляем изображения и индикаторы
