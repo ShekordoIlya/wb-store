@@ -3,15 +3,28 @@
 }
 
 .cards-wrapper {
-  @include flex-container;
   padding: 20px 0px;
+  text-align: center;
+  @include flex-container;
+}
+
+.card {
+  @include card-style;
 }
 
 img {
   width: 100%;
-  height: 100%;
 }
 
-.card-wrapper {
-  @include card-style;
+p {
+  padding: 10px 0px;
+}
+
+.card {
+  img {
+    border-radius: 30px;
+  }
+  button {
+    margin-bottom: 10px;
+  }
 }
