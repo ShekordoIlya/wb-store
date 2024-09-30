@@ -1,3 +1,5 @@
+import { addToCart } from "../header/cart_addToCart";
+
 // Created element of html
 const sectionCards = document.createElement("section");
 sectionCards.className = "section-cards";
@@ -33,6 +35,7 @@ function createCard(card) {
   //Cards wrappers
   const cardWrapper = document.createElement("div");
   cardWrapper.className = "card-wrapper";
+  cardWrapper.id = card.id;
 
   //Cards
   const cardMain = document.createElement("div");
@@ -51,7 +54,9 @@ function createCard(card) {
   //Cards buttons
   const cardBtn = document.createElement("button");
   cardBtn.type = "button";
+  cardBtn.className = "card-button";
   cardBtn.textContent = "Add to cart";
+  cardBtn.addEventListener("click", () => addToCart(card));
 
   //Item price
   const cardPrice = document.createElement("p");
@@ -70,4 +75,14 @@ function createCard(card) {
   sectionCards.append(containerCards);
   bodyElement.append(sectionCards);
 }
+
+const buttons = document.querySelectorAll(".card-button");
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    let card = e.target.closest(".card-wrapper");
+    console.log(card);
+    addToCart(card);
+  });
+});
+
 export { sectionCards };
