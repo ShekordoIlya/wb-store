@@ -18,6 +18,27 @@
   }
 }
 
+@mixin closeBtnCart {
+  position: relative;
+  border: 1px solid #5b1d22;
+  border-radius: 5px;
+  background: rgb(151, 158, 158);
+  background: linear-gradient(
+    0deg,
+    rgb(205, 85, 87) 0%,
+    rgba(123, 38, 38, 0.9) 100%
+  );
+  padding: 5px;
+  transition: 0.4s ease;
+  cursor: pointer;
+  &:hover {
+    transform: scale(0.99);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
 @mixin set-on-container {
   max-width: 1170px;
   margin: auto;
@@ -34,4 +55,28 @@
   border: 1px solid black;
   border-radius: 30px;
   overflow-y: hidden;
+}
+
+@mixin cross {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: #1f0d0d;
+    transform: rotate(45deg);
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: #1f0d0d;
+    transform: rotate(-45deg);
+  }
 }
