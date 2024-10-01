@@ -198,14 +198,13 @@ header {
     width: 25px;
     height: 25px;
 
+    .close-wrap {
+      @include cross;
+    }
 
-  .close-wrap {
-    @include cross;
-  }  
-  
-  &:hover {
-    transform: scale(0.94);
-  }
+    &:hover {
+      transform: scale(0.94);
+    }
     .close-wrap {
       &::before {
         content: "";
@@ -230,7 +229,6 @@ header {
       }
     }
 
-
     &:hover {
       transform: scale(0.94);
     }
@@ -240,24 +238,22 @@ header {
     }
   }
 }
-  .cart-stuff {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid #6e316e;
-    border-radius: 15px;
-    padding: 15px 0;
-    width: 90%;
-    margin: auto;
-  }
-
-  .total-sum {
-    font-size: 18px;
-    color: #000000;
-    font-weight: 400;
-  }
+.cart-stuff {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #6e316e;
+  border-radius: 15px;
+  padding: 15px 0;
+  width: 90%;
+  margin: auto;
 }
 
+.total-sum {
+  font-size: 18px;
+  color: #000000;
+  font-weight: 400;
+}
 
 .item-wrap {
   width: 100%;
@@ -275,7 +271,6 @@ header {
   display: block;
 }
 
-
 .item-content {
   display: flex;
   justify-content: space-between;
@@ -287,11 +282,11 @@ header {
 
 .item-delete-btn {
   position: relative;
-  @include  closeBtnCart;
+  @include closeBtnCart;
   width: 30px;
   height: 30px;
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 13px;
     right: 4px;
@@ -301,9 +296,9 @@ header {
     background: #1f0d0d;
     transform: rotate(45deg);
   }
-  
+
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 13px;
     right: 4px;
@@ -313,5 +308,4 @@ header {
     background: #1f0d0d;
     transform: rotate(-45deg);
   }
-
 }
