@@ -4,10 +4,9 @@ body {
 }
 
 .modal-open {
-  overflow: hidden;
   &::after {
     position: absolute;
-    content: '';
+    content: "";
     top: 0;
     left: 0;
     background: #de83de33;
@@ -25,6 +24,7 @@ body {
 header {
   background-color: #d7c7ec;
   padding: 20px 0;
+  margin-bottom: 30px;
 }
 
 .header-wrap {
@@ -58,38 +58,38 @@ header {
   background-color: #fff;
   border-radius: 20px;
   // overflow: hidden;
- 
-    .clear-btn {
-      position: absolute;
-      top: 15px;
-      right: 12px;
-      cursor: pointer;
-      transition: 0.5s ease;
-      width: 25px;
-      height: 25px;
-      z-index: 3;
 
-      &::before {
-        content: '';
-        position: absolute;
-        top: 10px;
-        display: block;
-        width: 20px;
-        height: 3px;
-        background: rgba(103, 98, 98, 0.7);
-        transform: rotate(45deg);
-      }
-      
-      &::after {
-        content: '';
-        position: absolute;
-        top: 10px;
-        display: block;
-        width: 20px;
-        height: 3px;
-        background: rgba(103, 98, 98, 0.7);
-        transform: rotate(-45deg);
-      }
+  .clear-btn {
+    position: absolute;
+    top: 15px;
+    right: 12px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    width: 25px;
+    height: 25px;
+    z-index: 3;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      display: block;
+      width: 20px;
+      height: 3px;
+      background: rgba(103, 98, 98, 0.7);
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 10px;
+      display: block;
+      width: 20px;
+      height: 3px;
+      background: rgba(103, 98, 98, 0.7);
+      transform: rotate(-45deg);
+    }
   }
 
   #search-input {
@@ -114,8 +114,7 @@ header {
   width: 100%;
 }
 
-.option-item
- {
+.option-item {
   font-size: 20px;
   box-shadow: inset 0 0 6px black;
   background-color: #fff;
@@ -134,7 +133,7 @@ header {
   }
 }
 
-.no-matches{
+.no-matches {
   font-size: 20px;
   box-shadow: inset 0 0 6px black;
   background-color: #fff;
@@ -152,7 +151,6 @@ header {
 .hidden {
   display: none;
 }
-
 
 .modal {
   display: none;
@@ -182,7 +180,7 @@ header {
   .cart-title {
     font-size: 24px;
     color: #000000;
-    font-weight: 600; 
+    font-weight: 600;
   }
 
   .cart-clear-btn {
@@ -191,52 +189,47 @@ header {
     cursor: pointer;
   }
 
-  
-.cart-close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  transition: 0.5s ease;
-  width: 25px;
-  height: 25px;
+  .cart-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    width: 25px;
+    height: 25px;
 
-  .close-wrap {
+    .close-wrap {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        display: block;
+        width: 24px;
+        height: 3px;
+        background: #676262;
+        transform: rotate(45deg);
+      }
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 10px;
-      display: block;
-      width: 24px;
-      height: 3px;
-      background: #676262;
-      transform: rotate(45deg);
+      &::after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        display: block;
+        width: 24px;
+        height: 3px;
+        background: #676262;
+        transform: rotate(-45deg);
+      }
     }
-    
-    &::after {
-      content: '';
-      position: absolute;
-      top: 10px;
-      display: block;
-      width: 24px;
-      height: 3px;
-      background: #676262;
-      transform: rotate(-45deg);
+
+    &:hover {
+      transform: scale(0.94);
     }
-  }  
-  
-  &:hover {
-    transform: scale(0.94);
+
+    &:active {
+      transform: scale(0.9);
+    }
   }
-
-  &:active {
-    transform: scale(0.9);
-
-  }
-}
-
-
 
   .cart-stuff {
     display: flex;
@@ -258,6 +251,6 @@ header {
   .total-sum {
     font-size: 18px;
     color: #000000;
-    font-weight: 400; 
+    font-weight: 400;
   }
 }

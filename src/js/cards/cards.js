@@ -1,4 +1,7 @@
+import { body } from "../header/cart";
 import { addToCart } from "../header/cart_addToCart";
+import { cardScale } from "./cards_scale";
+import { cardUnScale } from "./cards_scale";
 
 // Created element of html
 const sectionCards = document.createElement("section");
@@ -36,6 +39,19 @@ function createCard(card) {
   const cardWrapper = document.createElement("div");
   cardWrapper.className = "card-wrapper";
   cardWrapper.id = card.id;
+  const cardWrapperSwitch = ["card-wrapper", "card-wrapper-click"];
+  let countEl = 0;
+  cardWrapper.addEventListener("click", () => {
+    cardScale();
+    const prev = countEl;
+    countEl++;
+    if (countEl >= cardWrapperSwitch.length) {
+      countEl = 0;
+      cardUnScale();
+    }
+    cardWrapper.classList.remove(cardWrapperSwitch[prev]);
+    cardWrapper.classList.add(cardWrapperSwitch[countEl]);
+  });
 
   //Cards
   const cardMain = document.createElement("div");
