@@ -29,6 +29,11 @@ cartTitle.textContent = "Your Cart";
 const cartClear = document.createElement("button");
 cartClear.className = "cart-clear-btn";
 cartClear.textContent = "Clear cart";
+cartClear.addEventListener("click", () => {
+  cartAdded = [];
+  setItemsInStorage(cartAdded);
+  document.querySelector(".cart-stuff").innerHTML = "";
+});
 
 const close = document.createElement("div");
 const closeWrap = document.createElement("div");
@@ -54,7 +59,6 @@ modal.append(modalContent);
 close.addEventListener("click", closeModal);
 cartButton.addEventListener("click", showModal);
 
-const cartAdded = getItemFromStorage();
-console.log(cartAdded);
+let cartAdded = getItemFromStorage();
 
 export { modal, cartButton, body, cartStuff, cartAdded };

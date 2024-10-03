@@ -1,4 +1,3 @@
-import { body } from "../header/cart";
 import { addToCart } from "../header/cart_addToCart";
 import { cardScale } from "./cards_scale";
 import { cardUnScale } from "./cards_scale";
@@ -15,8 +14,6 @@ containerCards.className = "container-cards";
 
 const cardsWrapper = document.createElement("div");
 cardsWrapper.className = "cards-wrapper";
-
-const bodyElement = document.querySelector("body");
 
 window.addEventListener("DOMContentLoaded", () => {
   getData();
