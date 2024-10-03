@@ -32,7 +32,7 @@ const body = document.querySelector("body");
 headerWrap.append(logo, searchField, cartButton);
 container.append(headerWrap);
 header.append(container);
-body.append(modal);
 body.prepend(header);
+body.append(modal);
 
 export { header, modal };

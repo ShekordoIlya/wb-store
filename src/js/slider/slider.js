@@ -1,3 +1,5 @@
+import { header } from "../header/header";
+
 // Создаем элементы слайдера через DOM
 const sliderContainer = document.createElement("div");
 sliderContainer.classList.add("slider-container");
@@ -25,15 +27,15 @@ rightButton.innerHTML = "›";
 sliderContainer.appendChild(rightButton);
 
 // Добавляем слайдер в body
-document.body.appendChild(sliderContainer);
+header.after(sliderContainer);
 
 // Массив с картинками
 const images = [
-    'https://images.pexels.com/photos/5885454/pexels-photo-5885454.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',  
-    'https://images.pexels.com/photos/5993378/pexels-photo-5993378.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',  
-    'https://images.pexels.com/photos/6303683/pexels-photo-6303683.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',  
-    'https://images.pexels.com/photos/6249674/pexels-photo-6249674.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',  
-    'https://images.pexels.com/photos/6238122/pexels-photo-6238122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'   
+  "https://images.pexels.com/photos/5885454/pexels-photo-5885454.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "https://images.pexels.com/photos/5993378/pexels-photo-5993378.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "https://images.pexels.com/photos/6303683/pexels-photo-6303683.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "https://images.pexels.com/photos/6249674/pexels-photo-6249674.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "https://images.pexels.com/photos/6238122/pexels-photo-6238122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 ];
 
 // Добавляем изображения и индикаторы

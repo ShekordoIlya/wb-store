@@ -2,6 +2,9 @@ import { body } from "../header/cart";
 import { addToCart } from "../header/cart_addToCart";
 import { cardScale } from "./cards_scale";
 import { cardUnScale } from "./cards_scale";
+import { sliderContainer } from "../slider/slider";
+import { moveToCartAnimation } from "./cards_animation.js";
+import { cartButton } from "../header/cart";
 
 // Created element of html
 const sectionCards = document.createElement("section");
@@ -72,7 +75,12 @@ function createCard(card) {
   cardBtn.type = "button";
   cardBtn.className = "card-button";
   cardBtn.textContent = "Add to cart";
-  cardBtn.addEventListener("click", () => addToCart(card));
+  cardBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    addToCart(card);
+    let item = e.target.closest(".card-wrapper");
+    moveToCartAnimation(item, cartBtn);
+  });
 
   //Item price
   const cardPrice = document.createElement("p");
@@ -89,14 +97,15 @@ function createCard(card) {
   cardsWrapper.append(cardWrapper);
   containerCards.append(cardsWrapper);
   sectionCards.append(containerCards);
-  bodyElement.append(sectionCards);
+  sliderContainer.after(sectionCards);
 }
 
 const buttons = document.querySelectorAll(".card-button");
+const cartBtn = cartButton;
+
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
     let card = e.target.closest(".card-wrapper");
-    console.log(card);
     addToCart(card);
   });
 });

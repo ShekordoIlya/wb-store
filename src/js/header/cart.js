@@ -55,5 +55,6 @@ close.addEventListener("click", closeModal);
 cartButton.addEventListener("click", showModal);
 
 const cartAdded = getItemFromStorage();
+console.log(cartAdded);
 
 export { modal, cartButton, body, cartStuff, cartAdded };
