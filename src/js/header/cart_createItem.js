@@ -1,5 +1,11 @@
-import { cartStuff } from "./cart";
-import { deleteItem } from "./cart_deleteItem";
+import { cartAdded, cartStuff } from "./cart";
+import { setItemsInStorage } from "./cart_storageGetSet";
+
+document.addEventListener("DOMContentLoaded", (element) => {
+  cartAdded.forEach((el) => {
+    createItem(el);
+  });
+});
 
 export function createItem(productItem) {
   const itemWrap = document.createElement("div");
@@ -25,7 +31,12 @@ export function createItem(productItem) {
   const itemDeleteBtn = document.createElement("button");
   itemDeleteBtn.type = "button";
   itemDeleteBtn.className = "item-delete-btn";
-  itemDeleteBtn.addEventListener("click", deleteItem);
+  itemDeleteBtn.addEventListener("click", (el) => {
+    const index = cartAdded.findIndex((item) => item.id === productItem.id);
+    cartAdded.splice(index, 1);
+    el.currentTarget.closest(".item-wrap").remove();
+    setItemsInStorage(cartAdded);
+  });
 
   itemContent.append(itemImg, itemTitle, itemPrice, itemDeleteBtn);
   itemWrap.append(itemContent);

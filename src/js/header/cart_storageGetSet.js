@@ -3,8 +3,8 @@ function setItemsInStorage(cartAdded) {
 }
 
 function getItemFromStorage() {
-  if (localStorage.getItem("cartAdded")) {
-    return JSON.parse(localStorage.getItem("cartAdded"));
+  if (localStorage.getItem("productItem")) {
+    return JSON.parse(localStorage.getItem("productItem"));
   }
   return [];
 }
