@@ -12,7 +12,7 @@ body {
     background: #de83de33;
     width: 100%;
     height: 100%;
-    z-index: 20;
+    z-index: 10;
   }
 }
 
@@ -43,6 +43,8 @@ header {
 }
 
 #cart-button {
+  position: relative;
+  z-index: 22;
   @include header-button-shape;
   font-size: 24px;
   color: #000000;
