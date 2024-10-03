@@ -78,3 +78,9 @@
     transform: rotate(-45deg);
   }
 }
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
