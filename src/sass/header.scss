@@ -61,6 +61,22 @@ header {
   border-radius: 20px;
   // overflow: hidden;
 
+  .search-button {
+    background-image: url("../img/search.svg");
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 50px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    width: 25px;
+    height: 25px;
+    z-index: 4;
+    border: none;
+    background-color: white;
+    background-size: cover;
+  }
+
   .clear-btn {
     display: block;
     position: absolute;
@@ -70,7 +86,7 @@ header {
     transition: 0.5s ease;
     width: 25px;
     height: 25px;
-    z-index: 4;
+    z-index: 5;
 
     &::before {
       content: "";
@@ -167,20 +183,20 @@ header {
   background-color: #d7c7ec;
   box-shadow: 2px 2px 6px #6e316e, -2px -2px 6px #6e316e;
   border-radius: 15px;
-}  
-.show{
-    display: block;
-    animation: fadeInScale 0.4s ease-out;
-    position: absolute;
-    top: 30vh;
-    left: calc(50% - 15%);
-    padding: 10px 15px;
-    width: 35%;
-    z-index: 99;
-    border: 2px solid #6e316e;
-    background-color: #d7c7ec;
-    box-shadow: 2px 2px 6px #6e316e, -2px -2px 6px #6e316e;
-    border-radius: 15px;
+}
+.show {
+  display: block;
+  animation: fadeInScale 0.4s ease-out;
+  position: absolute;
+  top: 30vh;
+  left: calc(50% - 15%);
+  padding: 10px 15px;
+  width: 35%;
+  z-index: 99;
+  border: 2px solid #6e316e;
+  background-color: #d7c7ec;
+  box-shadow: 2px 2px 6px #6e316e, -2px -2px 6px #6e316e;
+  border-radius: 15px;
 }
 
 @include keyframes(fadeInScale) {
