@@ -32,7 +32,7 @@ cartClear.addEventListener("click", () => {
   cartAdded = [];
   setItemsInStorage(cartAdded);
   document.querySelector(".cart-stuff").innerHTML = "";
-  updateCartCount(); 
+  updateCartCount();
 });
 
 const close = document.createElement("div");
@@ -61,24 +61,23 @@ cartButton.addEventListener("click", showModal);
 
 let cartAdded = getItemFromStorage();
 
-const cartCount = document.createElement('span');
-cartCount.id = 'cart-count';
-cartCount.textContent = '(0)'; 
-cartButton.appendChild(cartCount); 
+const cartCount = document.createElement("span");
+cartCount.id = "cart-count";
+cartCount.textContent = "(0)";
+cartButton.appendChild(cartCount);
 
 function updateCartCount() {
-  const itemCount = cartAdded.length; 
-  cartCount.textContent = `(${itemCount})`; 
+  const itemCount = cartAdded.length;
+  cartCount.textContent = `(${itemCount})`;
 }
 
 updateCartCount();
 
 function addToCart(item) {
-  cartAdded.push(item); 
-  setItemsInStorage(cartAdded); 
-  updateCartCount(); 
+  cartAdded.push(item);
+  setItemsInStorage(cartAdded);
+  updateCartCount();
 }
-
 
 const itemDeleteBtn = document.createElement("button");
 itemDeleteBtn.type = "button";
@@ -89,8 +88,16 @@ itemDeleteBtn.addEventListener("click", (el) => {
     cartAdded.splice(index, 1);
     el.currentTarget.closest(".item-wrap").remove();
     setItemsInStorage(cartAdded);
-    updateCartCount(); 
+    updateCartCount();
   }
 });
 
-export { modal, cartButton, body, cartStuff, cartAdded, updateCartCount, addToCart }; // Экспортируем функцию
+export {
+  modal,
+  cartButton,
+  body,
+  cartStuff,
+  cartAdded,
+  updateCartCount,
+  addToCart,
+}; // Экспортируем функцию
