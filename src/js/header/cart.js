@@ -43,6 +43,7 @@ close.append(closeWrap);
 
 const cartStuff = document.createElement("div");
 cartStuff.className = "cart-stuff";
+cartStuff.id = "cart-stuff";
 
 const totalSum = document.createElement("div");
 totalSum.className = "total-sum";
