@@ -24,3 +24,12 @@ export function addToCart(card) {
 
   updateCartCount(); // Обновляем количество при добавлении
 }
+
+export function renderCart(cartAdded) {
+  const cartElement = document.getElementById("cart-stuff");
+  cartElement.innerHTML = "";
+
+  cartAdded.forEach((item) => {
+    createItem(item);
+  });
+}
