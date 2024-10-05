@@ -76,10 +76,10 @@ updateCartCount();
 function addToCart(item) {
   cartAdded.push(item); 
   setItemsInStorage(cartAdded); 
-  updateCartCount(); // Обновляем количество при добавлении
+  updateCartCount(); 
 }
 
-// Пример кнопки удаления элемента
+
 const itemDeleteBtn = document.createElement("button");
 itemDeleteBtn.type = "button";
 itemDeleteBtn.className = "item-delete-btn";
@@ -89,7 +89,7 @@ itemDeleteBtn.addEventListener("click", (el) => {
     cartAdded.splice(index, 1);
     el.currentTarget.closest(".item-wrap").remove();
     setItemsInStorage(cartAdded);
-    updateCartCount(); // Обновляем количество при удалении
+    updateCartCount(); 
   }
 });
 
