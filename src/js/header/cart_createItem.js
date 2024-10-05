@@ -1,7 +1,7 @@
 import { cartAdded, cartStuff } from "./cart";
 import { setItemsInStorage } from "./cart_storageGetSet";
 
-document.addEventListener("DOMContentLoaded", (element) => {
+document.addEventListener("DOMContentLoaded", () => {
   cartAdded.forEach((el) => {
     createItem(el);
   });
