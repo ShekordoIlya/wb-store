@@ -5,7 +5,7 @@ import { sliderContainer } from "../slider/slider";
 import { moveToCartAnimation } from "./cards_animation.js";
 import { cartButton } from "../header/cart";
 
-// Created element of html
+// Создание элемента HTML
 const sectionCards = document.createElement("section");
 sectionCards.className = "section-cards";
 
@@ -24,6 +24,7 @@ const options = {
   method: "GET",
   headers: { "content-type": "application/json" },
 };
+
 async function getData() {
   await fetch(url, options)
     .then((result) => result.json())
@@ -35,12 +36,14 @@ async function getData() {
 }
 
 function createCard(card) {
-  //Cards wrappers
+  // Обёртка для карточки
   const cardWrapper = document.createElement("div");
   cardWrapper.className = "card-wrapper";
   cardWrapper.id = card.id;
+
   const cardWrapperSwitch = ["card-wrapper", "card-wrapper-click"];
   let countEl = 0;
+
   cardWrapper.addEventListener("click", () => {
     cardScale();
     const prev = countEl;
@@ -53,58 +56,52 @@ function createCard(card) {
     cardWrapper.classList.add(cardWrapperSwitch[countEl]);
   });
 
-  //Cards
+  // Основная карточка
   const cardMain = document.createElement("div");
   cardMain.className = "card";
 
-  //Item image
+  // Изображение товара
   const cardImg = document.createElement("img");
   cardImg.src = card.images;
   cardImg.alt = card.name;
   cardImg.className = card.name;
 
-  //Item discount
+  // Скидка
   const discountCard = document.createElement("p");
   discountCard.textContent = card.discount + " byn";
 
-  //Cards buttons
+  // Кнопка добавления в корзину
   const cardBtn = document.createElement("button");
   cardBtn.type = "button";
   cardBtn.className = "card-button";
   cardBtn.textContent = "Add to cart";
+  
   cardBtn.addEventListener("click", (e) => {
     e.stopPropagation();
-    addToCart(card);
+    addToCart(card); 
     let item = e.target.closest(".card-wrapper");
-    moveToCartAnimation(item, cartBtn);
+    moveToCartAnimation(item, cartButton); 
   });
 
-  //Item price
+  // Цена товара
   const cardPrice = document.createElement("p");
   cardPrice.textContent = card.price + " byn";
-  //Item name
+
+  // Название товара
   const cardItemName = document.createElement("p");
   cardItemName.textContent = card.name;
 
-  //Adding into html
-  //Getting body element
-
+  // Добавление элементов в HTML
   cardMain.append(cardImg, discountCard, cardBtn);
   cardWrapper.append(cardMain, cardPrice, cardItemName);
   cardsWrapper.append(cardWrapper);
-  containerCards.append(cardsWrapper);
-  sectionCards.append(containerCards);
-  sliderContainer.after(sectionCards);
+  
+  // Убедимся, что контейнер карточек не дублируется
+  if (!document.querySelector(".cards-wrapper")) {
+    containerCards.append(cardsWrapper);
+    sectionCards.append(containerCards);
+    sliderContainer.after(sectionCards);
+  }
 }
-
-const buttons = document.querySelectorAll(".card-button");
-const cartBtn = cartButton;
-
-buttons.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    let card = e.target.closest(".card-wrapper");
-    addToCart(card);
-  });
-});
 
 export { sectionCards };

@@ -1,11 +1,6 @@
-import { cartAdded, cartStuff, updateCartCount } from "./cart"; // Импортируем updateCartCount
+import { cartAdded, updateCartCount, updateTotalSum } from "./cart"; 
 import { setItemsInStorage } from "./cart_storageGetSet";
 
-document.addEventListener("DOMContentLoaded", () => {
-  cartAdded.forEach((el) => {
-    createItem(el);
-  });
-});
 
 export function createItem(productItem) {
   const itemWrap = document.createElement("div");
@@ -27,24 +22,27 @@ export function createItem(productItem) {
 
   const itemPrice = document.createElement("p");
   itemPrice.className = "item-price";
-  itemPrice.textContent = productItem.price;
+  itemPrice.textContent = `${productItem.price} BYN`; 
 
   const itemDeleteBtn = document.createElement("button");
   itemDeleteBtn.type = "button";
   itemDeleteBtn.className = "item-delete-btn";
+  itemDeleteBtn.textContent = ""; 
   
+  // Удаление товара из корзины
   itemDeleteBtn.addEventListener("click", (el) => {
     const index = cartAdded.findIndex((item) => item.id === productItem.id);
     
     if (index !== -1) { 
       cartAdded.splice(index, 1); 
-      el.currentTarget.closest(".item-wrap").remove(); 
+      itemWrap.remove(); 
       setItemsInStorage(cartAdded); 
       updateCartCount(); 
+      updateTotalSum(); 
     }
   });
 
   itemContent.append(itemImg, itemTitle, itemPrice, itemDeleteBtn);
   itemWrap.append(itemContent);
-  cartStuff.append(itemWrap);
+  document.querySelector(".cart-stuff").append(itemWrap); 
 }
