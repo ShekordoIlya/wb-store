@@ -40,6 +40,7 @@ function createCard(card) {
   const cardWrapper = document.createElement("div");
   cardWrapper.className = "card-wrapper";
   cardWrapper.id = card.id;
+  cardWrapper.setAttribute("data-name", `${card.name}`);
 
   const cardWrapperSwitch = ["card-wrapper", "card-wrapper-click"];
   let countEl = 0;
