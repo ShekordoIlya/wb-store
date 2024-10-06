@@ -30,7 +30,6 @@ cartClear.className = "cart-clear-btn";
 cartClear.textContent = "Clear cart";
 
 cartClear.addEventListener("click", clearCart);
-
 const close = document.createElement("div");
 const closeWrap = document.createElement("div");
 closeWrap.className = "close-wrap";
@@ -65,9 +64,7 @@ cartButton.appendChild(cartCount);
 function clearCart() {
   cartAdded = [];
   setItemsInStorage(cartAdded);
-  cartStuff.innerHTML = "";
-  updateCartCount();
-  updateTotalSum();
+  renderCart(cartAdded);
 }
 
 function updateCartCount() {
