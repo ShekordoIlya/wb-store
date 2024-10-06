@@ -1,7 +1,14 @@
-import { cartAdded, updateCartCount, updateTotalSum } from "./cart";
+import { cartAdded, cartStuff, updateCartCount, updateTotalSum } from "./cart";
 import { setItemsInStorage } from "./cart_storageGetSet";
 import { renderCart } from "./cart_addToCart";
-import { cartStuff } from "./cart";
+
+document.addEventListener("DOMContentLoaded", () => {
+  cartAdded.forEach((el) => {
+    createItem(el);
+  });
+  updateCartCount();
+  updateTotalSum();
+});
 
 export function createItem(productItem) {
   const itemWrap = document.createElement("div");
@@ -48,14 +55,11 @@ export function createItem(productItem) {
 
   const itemPrice = document.createElement("p");
   itemPrice.className = "item-price";
-
-  itemPrice.textContent = `${productItem.price} BYN`;
+  itemPrice.textContent = productItem.price + ` BYN`;
 
   const itemDeleteBtn = document.createElement("button");
   itemDeleteBtn.type = "button";
   itemDeleteBtn.className = "item-delete-btn";
-
-  itemDeleteBtn.textContent = "";
 
   // Удаление товара из корзины
   itemDeleteBtn.addEventListener("click", (el) => {
@@ -78,7 +82,6 @@ export function createItem(productItem) {
     itemDeleteBtn
   );
   itemWrap.append(itemContent);
-
   cartStuff.append(itemWrap);
 
   quantityWrap.addEventListener("click", (e) => {

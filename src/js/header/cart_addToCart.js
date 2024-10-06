@@ -22,8 +22,6 @@ export function addToCart(card) {
   }
   setItemsInStorage(cartAdded);
   renderCart(cartAdded);
-
-  renderCart(cartAdded);
 }
 
 export function renderCart(cartAdded) {
