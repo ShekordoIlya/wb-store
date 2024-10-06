@@ -18,11 +18,15 @@ export function createItem(productItem) {
   const itemContent = document.createElement("div");
   itemContent.className = "item-content";
 
+  const imgWrap = document.createElement("div");
+  imgWrap.className = "img-wrap";
+
   const itemImg = document.createElement("img");
   itemImg.src = productItem.image;
+  imgWrap.append(itemImg);
 
-  const itemText = document.createElement("div");
-  itemText.className = "item-text";
+  const itemInfo = document.createElement("div");
+  itemInfo.className = "item-info";
 
   const itemTitle = document.createElement("h3");
   itemTitle.className = "item-title";
@@ -35,7 +39,6 @@ export function createItem(productItem) {
   quantityMinus.id = "minus";
   quantityMinus.className = "quantity-btn";
   quantityMinus.type = "button";
-  quantityMinus.textContent = "-";
 
   const itemQuantity = document.createElement("div");
   itemQuantity.className = "item-quantity";
@@ -49,13 +52,14 @@ export function createItem(productItem) {
   quantityPlus.type = "button";
   quantityPlus.className = "quantity-btn";
   quantityPlus.id = "plus";
-  quantityPlus.textContent = "+";
 
   quantityWrap.append(quantityMinus, itemQuantity, quantityPlus);
 
   const itemPrice = document.createElement("p");
   itemPrice.className = "item-price";
   itemPrice.textContent = productItem.price + ` BYN`;
+
+  itemInfo.append(itemTitle, quantityWrap, itemPrice);
 
   const itemDeleteBtn = document.createElement("button");
   itemDeleteBtn.type = "button";
@@ -74,13 +78,7 @@ export function createItem(productItem) {
     }
   });
 
-  itemContent.append(
-    itemImg,
-    itemTitle,
-    quantityWrap,
-    itemPrice,
-    itemDeleteBtn
-  );
+  itemContent.append(imgWrap, itemInfo, itemDeleteBtn);
   itemWrap.append(itemContent);
   cartStuff.append(itemWrap);
 

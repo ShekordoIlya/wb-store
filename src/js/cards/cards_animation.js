@@ -39,7 +39,7 @@ function moveToCartAnimation(item, cartBtn) {
             },
           ],
           {
-            duration: 1000,
+            duration: 900,
             easing: "ease-in-out",
             fill: "forwards",
           }
