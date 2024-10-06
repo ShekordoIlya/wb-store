@@ -10,6 +10,7 @@
   padding: 10px;
   transition: 0.4s ease;
   cursor: pointer;
+  z-index: 100;
   &:hover {
     transform: scale(0.95);
   }
@@ -76,5 +77,10 @@
     height: 3px;
     background: #1f0d0d;
     transform: rotate(-45deg);
+  }
+}
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
   }
 }

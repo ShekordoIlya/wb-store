@@ -27,7 +27,15 @@ cartTitle.textContent = "Your Cart";
 const cartClear = document.createElement("button");
 cartClear.className = "cart-clear-btn";
 cartClear.textContent = "Clear cart";
+
 cartClear.addEventListener("click", clearCart);
+
+// cartClear.addEventListener("click", () => {
+//   cartAdded = [];
+//   setItemsInStorage(cartAdded);
+//   document.querySelector(".cart-stuff").innerHTML = "";
+//   updateCartCount();
+
 
 const close = document.createElement("div");
 const closeWrap = document.createElement("div");
@@ -37,6 +45,7 @@ close.append(closeWrap);
 
 const cartStuff = document.createElement("div");
 cartStuff.className = "cart-stuff";
+cartStuff.id = "cart-stuff";
 
 const totalSum = document.createElement("div");
 totalSum.className = "total-sum";
@@ -55,10 +64,16 @@ cartButton.addEventListener("click", showModal);
 
 let cartAdded = getItemFromStorage(); 
 
+
 const cartCount = document.createElement('span');
 cartCount.id = 'cart-count';
 cartCount.textContent = '(0)';
 cartButton.appendChild(cartCount); 
+
+// const cartCount = document.createElement("span");
+// cartCount.id = "cart-count";
+// cartCount.textContent = "(0)";
+// cartButton.appendChild(cartCount);
 
 function clearCart() {
   cartAdded = []; 
@@ -69,14 +84,15 @@ function clearCart() {
 }
 
 function updateCartCount() {
-  const itemCount = cartAdded.length; 
-  cartCount.textContent = `(${itemCount})`; 
+  const itemCount = cartAdded.length;
+  cartCount.textContent = `(${itemCount})`;
 }
 
 function updateTotalSum() {
   const total = cartAdded.reduce((acc, item) => acc + item.price, 0); 
   totalText.textContent = `Total: ${total} BYN`; 
 }
+
 
 // Инициализация
 updateCartCount();
@@ -132,4 +148,34 @@ function renderCartItems() {
 
 renderCartItems(); 
 
-export { modal, cartButton, body, cartStuff, cartAdded, updateCartCount, updateTotalSum, renderCartItems };
+function addToCart(item) {
+  cartAdded.push(item);
+  setItemsInStorage(cartAdded);
+  updateCartCount();
+}
+
+const itemDeleteBtn = document.createElement("button");
+itemDeleteBtn.type = "button";
+itemDeleteBtn.className = "item-delete-btn";
+itemDeleteBtn.addEventListener("click", (el) => {
+  const index = cartAdded.findIndex((item) => item.id === productItem.id);
+  if (index !== -1) {
+    cartAdded.splice(index, 1);
+    el.currentTarget.closest(".item-wrap").remove();
+    setItemsInStorage(cartAdded);
+    updateCartCount();
+  }
+});
+
+export {
+  modal,
+  cartButton,
+  body,
+  cartStuff,
+  cartAdded,
+  updateCartCount,
+  addToCart,
+  updateTotalSum,
+  renderCartItems,
+}; // Экспортируем функцию
+

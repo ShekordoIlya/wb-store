@@ -78,9 +78,18 @@ function createCard(card) {
   
   cardBtn.addEventListener("click", (e) => {
     e.stopPropagation();
+
     addToCart(card); 
     let item = e.target.closest(".card-wrapper");
     moveToCartAnimation(item, cartButton); 
+//     addToCart(card);
+//     let item;
+//     if (e.target.closest(".card-wrapper")) {
+//       item = e.target.closest(".card-wrapper");
+//     } else if (e.target.closest(".card-wrapper-click")) {
+//       item = e.target.closest(".card-wrapper-click");
+//     }
+//     moveToCartAnimation(item, cartBtn);
   });
 
   // Цена товара
