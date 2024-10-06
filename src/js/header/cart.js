@@ -1,5 +1,6 @@
 import { showModal, closeModal } from "./modalShowClose";
 import { getItemFromStorage, setItemsInStorage } from "./cart_storageGetSet";
+import { renderCart } from "./cart_addToCart";
 
 const body = document.querySelector("body");
 
@@ -30,13 +31,6 @@ cartClear.textContent = "Clear cart";
 
 cartClear.addEventListener("click", clearCart);
 
-// cartClear.addEventListener("click", () => {
-//   cartAdded = [];
-//   setItemsInStorage(cartAdded);
-//   document.querySelector(".cart-stuff").innerHTML = "";
-//   updateCartCount();
-
-
 const close = document.createElement("div");
 const closeWrap = document.createElement("div");
 closeWrap.className = "close-wrap";
@@ -51,36 +45,29 @@ const totalSum = document.createElement("div");
 totalSum.className = "total-sum";
 
 const totalText = document.createElement("p");
-totalText.textContent = "Total: 0 BYN"; 
+totalText.textContent = "Total: 0 BYN";
 totalSum.append(totalText);
 
 cartHead.append(cartTitle, cartClear, close);
 modalContent.append(cartHead, cartStuff, totalSum);
 modal.append(modalContent);
 
-
 close.addEventListener("click", closeModal);
 cartButton.addEventListener("click", showModal);
 
-let cartAdded = getItemFromStorage(); 
+let cartAdded = getItemFromStorage();
 
-
-const cartCount = document.createElement('span');
-cartCount.id = 'cart-count';
-cartCount.textContent = '(0)';
-cartButton.appendChild(cartCount); 
-
-// const cartCount = document.createElement("span");
-// cartCount.id = "cart-count";
-// cartCount.textContent = "(0)";
-// cartButton.appendChild(cartCount);
+const cartCount = document.createElement("span");
+cartCount.id = "cart-count";
+cartCount.textContent = "(0)";
+cartButton.appendChild(cartCount);
 
 function clearCart() {
-  cartAdded = []; 
-  setItemsInStorage(cartAdded); 
-  cartStuff.innerHTML = ""; 
-  updateCartCount(); 
-  updateTotalSum(); 
+  cartAdded = [];
+  setItemsInStorage(cartAdded);
+  cartStuff.innerHTML = "";
+  updateCartCount();
+  updateTotalSum();
 }
 
 function updateCartCount() {
@@ -89,19 +76,17 @@ function updateCartCount() {
 }
 
 function updateTotalSum() {
-  const total = cartAdded.reduce((acc, item) => acc + item.price, 0); 
-  totalText.textContent = `Total: ${total} BYN`; 
+  const total = cartAdded.reduce((acc, item) => acc + item.price, 0);
+  totalText.textContent = `Total: ${total} BYN`;
 }
-
 
 // Инициализация
 updateCartCount();
-updateTotalSum(); 
-
+updateTotalSum();
 
 function renderCartItems() {
-  cartStuff.innerHTML = ""; 
-  cartAdded.forEach(item => {
+  cartStuff.innerHTML = "";
+  cartAdded.forEach((item) => {
     const itemWrap = document.createElement("div");
     itemWrap.className = "item-wrap";
     itemWrap.id = item.id;
@@ -121,32 +106,32 @@ function renderCartItems() {
 
     const itemPrice = document.createElement("p");
     itemPrice.className = "item-price";
-    itemPrice.textContent = `${item.price} BYN`; 
+    itemPrice.textContent = `${item.price} BYN`;
 
     const itemDeleteBtn = document.createElement("button");
     itemDeleteBtn.type = "button";
     itemDeleteBtn.className = "item-delete-btn";
-    itemDeleteBtn.textContent = ""; 
+    itemDeleteBtn.textContent = "";
 
     // Удаление товара из корзины
     itemDeleteBtn.addEventListener("click", () => {
       const index = cartAdded.findIndex((i) => i.id === item.id);
-      if (index !== -1) { 
-        cartAdded.splice(index, 1); 
-        setItemsInStorage(cartAdded); 
-        updateCartCount(); 
-        updateTotalSum(); 
-        renderCartItems(); 
+      if (index !== -1) {
+        cartAdded.splice(index, 1);
+        setItemsInStorage(cartAdded);
+        updateCartCount();
+        updateTotalSum();
+        renderCartItems();
       }
     });
 
     itemContent.append(itemImg, itemTitle, itemPrice, itemDeleteBtn);
     itemWrap.append(itemContent);
-    cartStuff.append(itemWrap); 
+    cartStuff.append(itemWrap);
   });
 }
 
-renderCartItems(); 
+renderCartItems();
 
 function addToCart(item) {
   cartAdded.push(item);
@@ -178,4 +163,3 @@ export {
   updateTotalSum,
   renderCartItems,
 }; // Экспортируем функцию
-
