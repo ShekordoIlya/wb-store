@@ -75,21 +75,18 @@ function createCard(card) {
   cardBtn.type = "button";
   cardBtn.className = "card-button";
   cardBtn.textContent = "Add to cart";
-  
+
   cardBtn.addEventListener("click", (e) => {
     e.stopPropagation();
 
-    addToCart(card); 
-    let item = e.target.closest(".card-wrapper");
-    moveToCartAnimation(item, cartButton); 
-//     addToCart(card);
-//     let item;
-//     if (e.target.closest(".card-wrapper")) {
-//       item = e.target.closest(".card-wrapper");
-//     } else if (e.target.closest(".card-wrapper-click")) {
-//       item = e.target.closest(".card-wrapper-click");
-//     }
-//     moveToCartAnimation(item, cartBtn);
+    addToCart(card);
+    let item;
+    if (e.target.closest(".card-wrapper")) {
+      item = e.target.closest(".card-wrapper");
+    } else if (e.target.closest(".card-wrapper-click")) {
+      item = e.target.closest(".card-wrapper-click");
+    }
+    moveToCartAnimation(item, cartButton);
   });
 
   // Цена товара
@@ -104,7 +101,7 @@ function createCard(card) {
   cardMain.append(cardImg, discountCard, cardBtn);
   cardWrapper.append(cardMain, cardPrice, cardItemName);
   cardsWrapper.append(cardWrapper);
-  
+
   // Убедимся, что контейнер карточек не дублируется
   if (!document.querySelector(".cards-wrapper")) {
     containerCards.append(cardsWrapper);

@@ -1,7 +1,6 @@
-import { cartAdded, updateCartCount, updateTotalSum } from "./cart"; 
+import { cartAdded, updateCartCount, updateTotalSum } from "./cart";
 import { setItemsInStorage } from "./cart_storageGetSet";
 import { renderCart } from "./cart_addToCart";
-
 
 export function createItem(productItem) {
   const itemWrap = document.createElement("div");
@@ -49,26 +48,24 @@ export function createItem(productItem) {
   const itemPrice = document.createElement("p");
   itemPrice.className = "item-price";
 
-  itemPrice.textContent = `${productItem.price} BYN`; 
-
+  itemPrice.textContent = `${productItem.price} BYN`;
 
   const itemDeleteBtn = document.createElement("button");
   itemDeleteBtn.type = "button";
   itemDeleteBtn.className = "item-delete-btn";
 
-  itemDeleteBtn.textContent = ""; 
-  
+  itemDeleteBtn.textContent = "";
+
   // Удаление товара из корзины
   itemDeleteBtn.addEventListener("click", (el) => {
     const index = cartAdded.findIndex((item) => item.id === productItem.id);
-    
-    if (index !== -1) { 
-      cartAdded.splice(index, 1); 
-      itemWrap.remove(); 
-      setItemsInStorage(cartAdded); 
-      updateCartCount(); 
-      updateTotalSum(); 
 
+    if (index !== -1) {
+      cartAdded.splice(index, 1);
+      itemWrap.remove();
+      setItemsInStorage(cartAdded);
+      updateCartCount();
+      updateTotalSum();
     }
   });
 
@@ -81,9 +78,9 @@ export function createItem(productItem) {
   );
   itemWrap.append(itemContent);
 
-//   document.querySelector(".cart-stuff").append(itemWrap); 
+  document.querySelector(".cart-stuff").append(itemWrap);
 
-  cartStuff.append(itemWrap);
+  // cartStuff.append(itemWrap);
 
   quantityWrap.addEventListener("click", (e) => {
     let productId = productItem.id;
