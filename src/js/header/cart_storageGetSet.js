@@ -3,10 +3,8 @@ function setItemsInStorage(cartAdded) {
 }
 
 function getItemFromStorage() {
-  if (localStorage.getItem("productItem")) {
-    return JSON.parse(localStorage.getItem("productItem"));
-  }
-  return [];
+  const items = localStorage.getItem("productItem");
+  return items ? JSON.parse(items) : []; 
 }
 
 export { setItemsInStorage, getItemFromStorage };
