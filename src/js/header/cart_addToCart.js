@@ -12,20 +12,21 @@ export function addToCart(card) {
     quantity: 1,
   };
 
-  const existingItemIndex = cartAdded.findIndex(
-    (item) => item.id === productItem.id
-  );
+  let existingProduct = cartAdded.find((item) => item.id === card.id);
 
-  if (existingItemIndex === -1) {
-    createItem(productItem);
-    cartAdded.push(productItem);
+  if (existingProduct) {
+    existingProduct.quantity += productItem.quantity;
+    existingProduct.price += productItem.discount;
   } else {
-    cartAdded[existingItemIndex].quantity += 1;
+    cartAdded.push(productItem);
   }
+  setItemsInStorage(cartAdded);
+  renderCart(cartAdded);
 
   setItemsInStorage(cartAdded);
   updateCartCount(); //
   updateTotalSum();
+  renderCart(cartAdded);
   //     quantity: 1,
   //     price: card.discount,
   //     discount: card.discount,

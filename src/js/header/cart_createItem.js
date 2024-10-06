@@ -1,6 +1,7 @@
 import { cartAdded, updateCartCount, updateTotalSum } from "./cart";
 import { setItemsInStorage } from "./cart_storageGetSet";
 import { renderCart } from "./cart_addToCart";
+import { cartStuff } from "./cart";
 
 export function createItem(productItem) {
   const itemWrap = document.createElement("div");
@@ -78,9 +79,7 @@ export function createItem(productItem) {
   );
   itemWrap.append(itemContent);
 
-  document.querySelector(".cart-stuff").append(itemWrap);
-
-  // cartStuff.append(itemWrap);
+  cartStuff.append(itemWrap);
 
   quantityWrap.addEventListener("click", (e) => {
     let productId = productItem.id;
