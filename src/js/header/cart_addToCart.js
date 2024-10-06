@@ -23,27 +23,8 @@ export function addToCart(card) {
   setItemsInStorage(cartAdded);
   renderCart(cartAdded);
 
-  setItemsInStorage(cartAdded);
   updateCartCount(); //
   updateTotalSum();
-  renderCart(cartAdded);
-  //     quantity: 1,
-  //     price: card.discount,
-  //     discount: card.discount,
-  //     image: card.images,
-  //   };
-  //   let existingProduct = cartAdded.find((item) => item.id === card.id);
-
-  //   if (existingProduct) {
-  //     existingProduct.quantity += productItem.quantity;
-  //     existingProduct.price += productItem.discount;
-  //   } else {
-  //     cartAdded.push(productItem);
-  //   }
-  //   setItemsInStorage(cartAdded);
-  //   renderCart(cartAdded);
-
-  //   updateCartCount(); // Обновляем количество при добавлении
 }
 
 export function renderCart(cartAdded) {
