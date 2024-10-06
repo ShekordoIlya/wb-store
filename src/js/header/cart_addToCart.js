@@ -22,9 +22,6 @@ export function addToCart(card) {
   }
   setItemsInStorage(cartAdded);
   renderCart(cartAdded);
-
-  updateCartCount(); //
-  updateTotalSum();
 }
 
 export function renderCart(cartAdded) {
@@ -34,4 +31,6 @@ export function renderCart(cartAdded) {
   cartAdded.forEach((item) => {
     createItem(item);
   });
+  updateCartCount();
+  updateTotalSum();
 }
