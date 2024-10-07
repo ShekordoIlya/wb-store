@@ -1,8 +1,7 @@
-import { updateVisibility } from "./search_updateVisibility";
 import { displayOptions } from "./search_displayOptions";
-import { cardScale, cardUnScale } from "../cards/cards_scale";
 
 const url = "https://66f59c9b436827ced97492c3.mockapi.io/wb-store/cards";
+
 const searchField = document.createElement("div");
 searchField.className = "search-field-wrap";
 const clearBtn = document.createElement("div");
@@ -18,11 +17,6 @@ searchInput.id = "search-input";
 const searchOptions = document.createElement("ul");
 searchOptions.className = "options";
 searchOptions.style.display = "none";
-
-const noMatches = document.createElement("li");
-noMatches.classList.add("no-matches");
-noMatches.textContent = "No Matches";
-noMatches.style.display = "none";
 
 searchField.append(searchInput, clearBtn, searchOptions, searchBtn);
 
@@ -47,30 +41,23 @@ clearBtn.addEventListener("click", function () {
   searchInput.focus();
 });
 
-const cardsArr = [];
-let inputLength = 0;
-
-searchInput.addEventListener("input", async () => {
-  inputLength = searchInput.value.length;
-  updateVisibility();
-
-  const meta = await fetch(url);
-  const data = await meta.json();
-
-  data.forEach((item) => {
-    cardsArr.push(item);
-  });
-  console.log(data);
-});
-
 searchInput.addEventListener("change", displayOptions);
 searchInput.addEventListener("keyup", displayOptions);
 
-// searchInput.addEventListener("input", filterInput);
-
-// function filterInput() {
-//   const inputValue = this.value.toLowerCase;
-//   console.log(inputValue);
-// }
+searchField.addEventListener("click", (e) => {
+  const card = e.target.closest(".option-item");
+  const cardName = card.textContent;
+  console.log(cardName, "click");
+  const productCards = document.querySelectorAll(".card-wrapper");
+  productCards.forEach((element) => {
+    const targetName = element.getAttribute("data-name").toLowerCase();
+    console.log(targetName);
+    if (targetName.includes(cardName)) {
+      element.click();
+      searchOptions.style.display = "none";
+      searchInput.value = "Search ...";
+    }
+  });
+});
 
 export { searchField, searchOptions, cardsArr };

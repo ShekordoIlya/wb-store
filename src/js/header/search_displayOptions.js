@@ -1,38 +1,53 @@
 import { updateVisibility } from "./search_updateVisibility";
-import { getOptions } from "./search_getOptions";
-import { cardsArr } from "./searchField";
 import { searchOptions } from "./searchField";
+const productCards = document.querySelectorAll(".card-wrapper");
 
 export function displayOptions() {
-  const inputValue = this.value.trim().toLowerCase();
-  console.log("this.value >> ", inputValue);
-  updateVisibility();
+  const searchValue = this.value.trim().toLowerCase();
+  const productCards = document.querySelectorAll(".card-wrapper");
+  console.log(searchValue, "value");
+  const li = document.createElement("li");
+  li.className = "option-item";
+  li.textContent = "";
+  searchOptions.style.display = "none";
 
-  if (!inputValue) {
+  const options = [];
+  console.log(productCards, "productcards");
+
+  productCards.forEach((card) => {
+    console.log(card);
+    const productName = card.getAttribute("data-name").toLowerCase();
+    console.log(productName, "name");
+    if (productName.includes(searchValue)) {
+      console.log(card, "card");
+      options.push(card);
+    }
+  });
+
+  if (!searchValue) {
     searchOptions.style.display = "none";
     searchOptions.innerHTML = "";
     return;
   }
-
-  const options = getOptions(inputValue, cardsArr);
-
+  console.log(options, " options");
   searchOptions.innerHTML = "";
+
   if (options.length === 0) {
-    searchOptions.innerHTML = '<li class="no-matches">No matches...</li>';
+    li.textContent = "No matches...";
+    searchOptions.append(li);
     searchOptions.style.display = "block";
   } else {
-    const html = options
-      .map((card) => {
-        const regex = new RegExp(inputValue, "gi");
-        const productName = card.name.replace(regex, `${inputValue}`);
-
-        return `<li class="option-item">${productName}</li>`;
-      })
-      .slice(0, 6)
-      .join("");
-
-    searchOptions.innerHTML = html;
-    searchOptions.style.display = "block";
+    options.forEach((card) => {
+      const productName = card.getAttribute("data-name").toLowerCase();
+      const li = document.createElement("li");
+      li.className = "option-item";
+      li.textContent = productName;
+      searchOptions.append(li);
+      console.log(li.textContent);
+      searchOptions.style.display = "block";
+    });
+    updateVisibility();
   }
-  updateVisibility();
 }
+
+export { productCards };
