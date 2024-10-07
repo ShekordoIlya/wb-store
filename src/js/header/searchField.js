@@ -1,7 +1,5 @@
 import { displayOptions } from "./search_displayOptions";
 
-const url = "https://66f59c9b436827ced97492c3.mockapi.io/wb-store/cards";
-
 const searchField = document.createElement("div");
 searchField.className = "search-field-wrap";
 const clearBtn = document.createElement("div");
@@ -41,25 +39,22 @@ clearBtn.addEventListener("click", function () {
   searchInput.focus();
 });
 
-searchInput.addEventListener("change", displayOptions);
-searchInput.addEventListener("keyup", displayOptions);
-
-searchField.addEventListener("click", (e) => {
+document.addEventListener("click", (e) => {
   const card = e.target.closest(".option-item");
-  const cardName = card.textContent;
-  console.log(cardName, "click");
-  const productCards = document.querySelectorAll(".card-wrapper");
-  productCards.forEach((element) => {
-    const targetName = element.getAttribute("data-name").toLowerCase();
-    console.log(targetName);
-    if (targetName.includes(cardName)) {
-      element.className.replace("card-wrapper-click");
-      element.click();
-      console.log(element.className);
-      searchOptions.style.display = "none";
-      searchInput.value = "Search ...";
-    }
-  });
+  if (card) {
+    const cardName = card.textContent.trim().toLowerCase();
+    const productCards = document.querySelectorAll(".card-wrapper");
+    productCards.forEach((element) => {
+      const targetName = element.getAttribute("data-name").trim().toLowerCase();
+      if (targetName.includes(cardName)) {
+        element.click();
+        searchOptions.style.display = "none";
+        searchInput.value = "Search ...";
+      }
+    });
+  }
 });
+
+searchInput.addEventListener("keyup", displayOptions);
 
 export { searchField, searchOptions, cardsArr };

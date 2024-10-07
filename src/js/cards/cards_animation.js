@@ -30,11 +30,11 @@ function moveToCartAnimation(item, cartBtn) {
         cardClone.animate(
           [
             {
-              transform: `translate(0px, 0px) scale(1)`,
+              transform: `translate(0px, 0px) scale(0.55)`,
               opacity: `1`,
             },
             {
-              transform: `translate(${delta_x}px, ${delta_y}px) scale(0.15)`,
+              transform: `translate(${delta_x}px, ${delta_y}px) scale(0.1)`,
               opacity: `0`,
             },
           ],

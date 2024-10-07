@@ -83,6 +83,7 @@ p {
     @include card-style;
      button {
       width: 80%;
+      font-size: $_20px;
       margin-bottom: $_10px;
       @include header-button-shape;
     }

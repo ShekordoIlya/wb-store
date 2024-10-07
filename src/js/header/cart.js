@@ -79,65 +79,6 @@ function updateTotalSum() {
   totalText.textContent = `Total: ${total} BYN`;
 }
 
-// Инициализация
-// updateCartCount();
-// updateTotalSum();
-
-// function renderCartItems() {
-//   cartStuff.innerHTML = "";
-//   cartAdded.forEach((item) => {
-//     const itemWrap = document.createElement("div");
-//     itemWrap.className = "item-wrap";
-//     itemWrap.id = item.id;
-
-//     const itemContent = document.createElement("div");
-//     itemContent.className = "item-content";
-
-//     const itemImg = document.createElement("img");
-//     itemImg.src = item.image;
-
-//     const itemText = document.createElement("div");
-//     itemText.className = "item-text";
-
-//     const itemTitle = document.createElement("h3");
-//     itemTitle.className = "item-title";
-//     itemTitle.textContent = item.name;
-
-//     const itemPrice = document.createElement("p");
-//     itemPrice.className = "item-price";
-//     itemPrice.textContent = `${item.price} BYN`;
-
-//     const itemDeleteBtn = document.createElement("button");
-//     itemDeleteBtn.type = "button";
-//     itemDeleteBtn.className = "item-delete-btn";
-//     itemDeleteBtn.textContent = "";
-
-//     // Удаление товара из корзины
-//     itemDeleteBtn.addEventListener("click", () => {
-//       const index = cartAdded.findIndex((i) => i.id === item.id);
-//       if (index !== -1) {
-//         cartAdded.splice(index, 1);
-//         setItemsInStorage(cartAdded);
-//         updateCartCount();
-//         updateTotalSum();
-//         renderCartItems();
-//       }
-//     });
-
-//     itemContent.append(itemImg, itemTitle, itemPrice, itemDeleteBtn);
-//     itemWrap.append(itemContent);
-//     cartStuff.append(itemWrap);
-//   });
-// }
-
-// renderCartItems();
-
-// function addToCart(item) {
-//   cartAdded.push(item);
-//   setItemsInStorage(cartAdded);
-//   updateCartCount();
-// }
-
 const itemDeleteBtn = document.createElement("button");
 itemDeleteBtn.type = "button";
 itemDeleteBtn.className = "item-delete-btn";
@@ -159,7 +100,5 @@ export {
   cartStuff,
   cartAdded,
   updateCartCount,
-  // addToCart,
   updateTotalSum,
-  // renderCartItems,
 }; // Экспортируем функцию
