@@ -55,6 +55,14 @@ document.addEventListener("click", (e) => {
   }
 });
 
+searchBtn.addEventListener("click", () => {
+  if (!searchField.classList.contains("active")) {
+    searchField.classList.add("active");
+  } else {
+    searchField.classList.remove("active");
+  }
+});
+
 searchInput.addEventListener("keyup", displayOptions);
 
 export { searchField, searchOptions, cardsArr };

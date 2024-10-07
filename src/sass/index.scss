@@ -2,6 +2,8 @@
 @import "./_mixins.scss";
 @import "./var.scss";
 @import "./header.scss";
+@import './modal.scss';
+@import './cart_items.scss';
 @import "./cards.scss";
 @import "./slider.scss";
 @import "./footer.scss";
@@ -38,12 +40,28 @@ body {
   html {
     font-size: 14px;
   }
+
   .container{
     width: 90%;
   }
 }
-// 320px 
-// 480px 
-// 600px 
-// 768px 
-// 1024px
+
+@media(max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+  .container {
+    width: 95%;
+  }
+  .cards-wrapper {
+    justify-content: space-around;
+  }
+}
+
+
+@media(max-width: 340px) {
+  .container {
+    width: 100%;
+    padding: 0 $_10px;
+  }
+}

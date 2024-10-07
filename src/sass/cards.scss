@@ -105,6 +105,9 @@ p {
   .cards-wrapper {
     justify-content: space-between;
   }
+  .card-wrapper-click {
+    left: 40%;
+  }
 }
 
 @media (max-width:768px){
@@ -121,7 +124,25 @@ p {
   .card-wrapper-click {
     scale: 0.7;
     width: 60%;
-    top: 25%;
+    top: 10%;
     left: 20%;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .card-wrapper {
+    width: 40%;
+    margin-bottom: $_15px;
+    &:hover {
+      scale: 1;
+    }
+
+  }
+}
+
+@media(max-width: 480px){
+  .img-item-wrap{
+    height: 60%;
   }
 }
