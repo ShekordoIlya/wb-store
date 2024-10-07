@@ -23,8 +23,8 @@ body {
 
 header {
   background-color: #d7c7ec;
-  padding: 20px 0;
-  margin-bottom: 30px;
+  padding: 15px 0;
+  margin-bottom: 25px;
 }
 
 .header-wrap {
@@ -36,7 +36,7 @@ header {
 .logo-wrap {
   @include header-button-shape;
   .logo-link {
-    font-size: 24px;
+    font-size: 18px;
     color: #000000;
     font-weight: 400;
   }
@@ -46,9 +46,9 @@ header {
   position: relative;
   z-index: 22;
   @include header-button-shape;
-  font-size: 24px;
-  color: #000000;
+  font-size: 18px;
   font-weight: 400;
+  color: #000000;
   cursor: pointer;
 }
 
@@ -64,12 +64,12 @@ header {
     background-image: url("../img/search.svg");
     display: block;
     position: absolute;
-    top: 15px;
+    top: 10px;
     right: 50px;
     cursor: pointer;
     transition: 0.5s ease;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     z-index: 4;
     border: none;
     background-color: white;
@@ -79,12 +79,12 @@ header {
   .clear-btn {
     display: block;
     position: absolute;
-    top: 15px;
+    top: 8px;
     right: 12px;
     cursor: pointer;
     transition: 0.5s ease;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     z-index: 5;
 
     &::before {
@@ -113,8 +113,8 @@ header {
   #search-input {
     box-shadow: inset 0 0 6px black;
     border-radius: 20px;
-    padding: 15px 10px;
-    font-size: 20px;
+    padding: 10px 18px;
+    font-size: 18px;
     width: 100%;
     text-align: start;
     border: none;
@@ -123,24 +123,24 @@ header {
 }
 
 .options {
+  z-index: 2;
+  width: 98%;
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 80%;
-  left: 0;
-  z-index: 2;
-  width: 100%;
+  top: 75%;
+  left: 1%;
 }
 
 .option-item {
-  font-size: 20px;
+  font-size: 18px;
   box-shadow: inset 0 0 6px black;
   background-color: #fff;
   background: white;
   list-style: none;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.16);
   margin: 0;
-  padding: 20px 15px 10px;
+  padding: 10px 15px 10px;
   text-transform: capitalize;
   cursor: pointer;
   transition: 0.5s ease;
@@ -152,14 +152,14 @@ header {
 }
 
 .no-matches {
-  font-size: 20px;
+  font-size: 18px;
   box-shadow: inset 0 0 6px black;
   background-color: #fff;
   background: white;
   list-style: none;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.16);
   margin: 0;
-  padding: 20px 15px 10px;
+  padding: 15px 15px 10px;
   text-transform: capitalize;
   transition: 0.5s ease;
   border-bottom-left-radius: 20px;
