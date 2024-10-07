@@ -82,11 +82,11 @@ p {
     0px $_8px $_16px rgba(0, 0, 0, 0.1);
   border-radius: $_30px;
   cursor: pointer;
-  &:hover {
-    scale: 1.2;
-    transition: 0.3s;
-    cursor: pointer;
-  }
+  // &:hover {
+  //   scale: 1.2;
+  //   transition: 0.3s;
+  //   cursor: pointer;
+  // }
   .card {
     @include card-style;
     button {
