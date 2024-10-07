@@ -16,15 +16,11 @@ body {
   }
 }
 
-.container {
-  max-width: 1170px;
-  margin: auto;
-}
-
 header {
   background-color: #d7c7ec;
-  padding: 20px 0;
-  margin-bottom: 30px;
+  padding: 0.9375rem 0;
+  border-bottom: 1px solid #cfb9ec;
+  margin-bottom: 0.5rem;
 }
 
 .header-wrap {
@@ -36,7 +32,7 @@ header {
 .logo-wrap {
   @include header-button-shape;
   .logo-link {
-    font-size: 24px;
+    font-size: 1.125rem;
     color: #000000;
     font-weight: 400;
   }
@@ -46,9 +42,9 @@ header {
   position: relative;
   z-index: 22;
   @include header-button-shape;
-  font-size: 24px;
-  color: #000000;
+  font-size: 1.125rem;
   font-weight: 400;
+  color: #000000;
   cursor: pointer;
 }
 
@@ -58,18 +54,18 @@ header {
   display: flex;
   align-items: center;
   background-color: #fff;
-  border-radius: 20px;
+  border-radius: 1.25rem;
 
   .search-button {
     background-image: url("../img/search.svg");
     display: block;
     position: absolute;
-    top: 15px;
-    right: 50px;
+    top: 0.625rem;
+    right: 3.125rem;
     cursor: pointer;
     transition: 0.5s ease;
-    width: 25px;
-    height: 25px;
+    width: 1.25rem;
+    height: 1.25rem;
     z-index: 4;
     border: none;
     background-color: white;
@@ -79,21 +75,21 @@ header {
   .clear-btn {
     display: block;
     position: absolute;
-    top: 15px;
-    right: 12px;
+    top: 0.5rem;
+    right: 0.75rem;
     cursor: pointer;
     transition: 0.5s ease;
-    width: 25px;
-    height: 25px;
+    width: 1.25rem;
+    height: 1.25rem;
     z-index: 5;
 
     &::before {
       content: "";
       position: absolute;
-      top: 10px;
+      top: 0.625rem;
       display: block;
-      width: 20px;
-      height: 3px;
+      width: 1.25rem;
+      height: 0.1875rem;
       background: rgba(103, 98, 98, 0.7);
       transform: rotate(45deg);
     }
@@ -101,10 +97,10 @@ header {
     &::after {
       content: "";
       position: absolute;
-      top: 10px;
+      top: 0.625rem;
       display: block;
-      width: 20px;
-      height: 3px;
+      width: 1.25rem;
+      height: 0.1875rem;
       background: rgba(103, 98, 98, 0.7);
       transform: rotate(-45deg);
     }
@@ -112,9 +108,9 @@ header {
 
   #search-input {
     box-shadow: inset 0 0 6px black;
-    border-radius: 20px;
-    padding: 15px 10px;
-    font-size: 20px;
+    border-radius: $_20px;
+    padding: $_10px $_18px;
+    font-size: 1.125rem;
     width: 100%;
     text-align: start;
     border: none;
@@ -123,47 +119,47 @@ header {
 }
 
 .options {
+  z-index: 2;
+  width: 98%;
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 80%;
-  left: 0;
-  z-index: 2;
-  width: 100%;
+  top: 85%;
+  left: 1%;
 }
 
 .option-item {
-  font-size: 20px;
+  font-size: 1.125rem;
   box-shadow: inset 0 0 6px black;
   background-color: #fff;
   background: white;
   list-style: none;
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 0 $_7px rgba(0, 0, 0, 0.16);
   margin: 0;
-  padding: 20px 15px 10px;
+  padding: $_10px $_15px $_10px;
   text-transform: capitalize;
   cursor: pointer;
   transition: 0.5s ease;
 
   &:last-child {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: $_20px;
+    border-bottom-right-radius: $_20px;
   }
 }
 
 .no-matches {
-  font-size: 20px;
-  box-shadow: inset 0 0 6px black;
+  font-size: 1.125rem;
+  box-shadow: inset 0 0 $_6px black;
   background-color: #fff;
   background: white;
   list-style: none;
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 0 $_7px rgba(0, 0, 0, 0.16);
   margin: 0;
-  padding: 20px 15px 10px;
+  padding: $_15px $_15px $_10px;
   text-transform: capitalize;
   transition: 0.5s ease;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: $_20px;
+  border-bottom-right-radius: $_20px;
 }
 
 .hidden {
@@ -176,13 +172,12 @@ header {
   top: 10vh;
   left: calc(50% - 15%);
   height: 50vh;
-  padding: 10px 15px;
+  padding: $_10px $_15px;
   width: 35%;
   z-index: 99;
-  border: 2px solid #6e316e;
   background-color: #d7c7ec;
-  box-shadow: 2px 2px 6px #6e316e, -2px -2px 6px #6e316e;
-  border-radius: 15px;
+  box-shadow: $_2px $_2px $_6px #6e316e, (-$_2px) (-$_2px) $_6px #6e316e;
+  border-radius: $_15px;
 }
 .show {
   display: block;
@@ -191,13 +186,12 @@ header {
   top: 10vh;
   left: calc(50% - 15%);
   height: 60vh;
-  padding: 10px 15px;
+  padding: $_10px $_15px;
   width: 35%;
   z-index: 99;
-  border: 2px solid #6e316e;
   background-color: #d7c7ec;
-  box-shadow: 2px 2px 6px #6e316e, -2px -2px 6px #6e316e;
-  border-radius: 15px;
+  box-shadow: $_2px $_2px $_6px #6e316e, (-$_2px) (-$_2px) $_6px #6e316e;
+  border-radius: $_15px;
 }
 
 @include keyframes(fadeInScale) {
@@ -222,9 +216,9 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0 0 10px;
+  padding: 0 0 $_10px;
   .cart-title {
-    font-size: 24px;
+    font-size: 1.5rem;
     color: #000000;
     font-weight: 600;
   }
@@ -236,12 +230,12 @@ header {
 
   .cart-close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: $_10px;
+    right: $_10px;
     cursor: pointer;
     transition: 0.5s ease;
-    width: 25px;
-    height: 25px;
+    width: $_25px;
+    height: $_25px;
 
     .close-wrap {
       @include cross;
@@ -254,10 +248,10 @@ header {
       &::before {
         content: "";
         position: absolute;
-        top: 10px;
+        top: $_10px;
         display: block;
-        width: 24px;
-        height: 3px;
+        width: $_24px;
+        height: $_3px;
         background: #676262;
         transform: rotate(45deg);
       }
@@ -265,10 +259,10 @@ header {
       &::after {
         content: "";
         position: absolute;
-        top: 10px;
+        top: $_10px;
         display: block;
-        width: 24px;
-        height: 3px;
+        width: $_24px;
+        height: $_3px;
         background: #676262;
         transform: rotate(-45deg);
       }
@@ -287,7 +281,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 15px 0;
+  padding: $_15px 0;
   width: 100%;
   height: 100%;
   margin: auto;
@@ -298,7 +292,7 @@ header {
 }
 
 .total-sum {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #000000;
   font-weight: 400;
 }
@@ -307,12 +301,12 @@ header {
   width: 100%;
   height: 40%;
   border: 0.5px solid #6e316e;
-  border-radius: 15px;
-  box-shadow: 0px 1px 2px rgba(0,0,0,0.1), 
-            0px 2px 4px rgba(0,0,0,0.1), 
-            0px 4px 8px rgba(0,0,0,0.1), 
-            0px 8px 16px rgba(0,0,0,0.1);
-  margin-bottom: 3px;
+  border-radius: $_15px;
+  box-shadow: 0px $_1px $_2px rgba(0,0,0,0.1), 
+            0px $_2px $_4px rgba(0,0,0,0.1), 
+            0px $_4px $_8px rgba(0,0,0,0.1), 
+            0px $_8px $_16px rgba(0,0,0,0.1);
+  margin-bottom: $_3px;
   &:last-child {
     margin-bottom: 0px;
   }
@@ -345,17 +339,17 @@ header {
 
   .item-title {
     text-transform: capitalize;
-    letter-spacing: 1px;
-    font-size: 24px;
+    letter-spacing: $_1px;
+    font-size: 1.5rem;
     font-weight: 600;
     display: block;
   } 
   
   .item-price {
     display: block;
-    font-size: 20px;
+    font-size: $_20px;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: $_1px;
   }
 
   .quantity-wrap{
@@ -367,17 +361,17 @@ header {
       text-align: center;
       text-decoration: none;
       display: inline-block;
-      font-size: 14px;
+      font-size: 0.875rem;
       cursor: pointer;
-      width: 20px;
-      height: 20px;
+      width: $_20px;
+      height: $_20px;
       font-weight: 600;
       border: none;
       border-radius: 10%;
-      box-shadow: 0px 1px 2px rgba(0,0,0,0.1), 
-            0px 2px 4px rgba(0,0,0,0.1), 
-            0px 4px 8px rgba(0,0,0,0.1), 
-            0px 8px 16px rgba(0,0,0,0.1);
+      box-shadow: 0px $_1px $_2px rgba(0,0,0,0.1), 
+            0px $_2px $_4px rgba(0,0,0,0.1), 
+            0px $_4px $_8px rgba(0,0,0,0.1), 
+            0px $_8px $_16px rgba(0,0,0,0.1);
            &:hover {
         transform: scale(0.94);
       }
@@ -407,9 +401,9 @@ header {
     
 
     #item-number {
-      font-size: 20px;
+      font-size: 1.25rem;
       font-weight: 400;
-      letter-spacing: 1px;
+      letter-spacing: $_1px;
     }
 
 
@@ -420,7 +414,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  padding: $_10px 0;
   width: 95%;
   height: 100%;
   margin: auto;
@@ -429,9 +423,9 @@ header {
 .item-delete-btn {
   position: relative;
   @include closeBtnCart;
-  font-size: 18px;
-  width: 30px;
-  height: 30px;
+  font-size: 1.125rem;
+  width: $_30px;
+  height: $_30px;
   display: flex;
   justify-content: center;
   align-items: center;

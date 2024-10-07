@@ -10,7 +10,7 @@ const sectionCards = document.createElement("section");
 sectionCards.className = "section-cards";
 
 const containerCards = document.createElement("div");
-containerCards.className = "container-cards";
+containerCards.className = "container";
 
 const cardsWrapper = document.createElement("div");
 cardsWrapper.className = "cards-wrapper";
@@ -46,10 +46,9 @@ function createCard(card) {
   let countEl = 0;
 
   cardWrapper.addEventListener("click", (e) => {
-    e.stopPropagation(); 
-    cardScale(); 
+    e.stopPropagation();
+    cardScale();
 
-  
     const prev = countEl;
     countEl++;
     if (countEl >= cardWrapperSwitch.length) {
@@ -59,17 +58,15 @@ function createCard(card) {
     cardWrapper.classList.remove(cardWrapperSwitch[prev]);
     cardWrapper.classList.add(cardWrapperSwitch[countEl]);
 
- 
     document.addEventListener("click", handleOutsideClick);
 
     function handleOutsideClick(e) {
-   
       if (!cardWrapper.contains(e.target)) {
-        cardUnScale(); 
-        cardWrapper.classList.remove(cardWrapperSwitch[countEl]); 
-        cardWrapper.classList.add(cardWrapperSwitch[0]); 
-        countEl = 0; 
-        document.removeEventListener("click", handleOutsideClick); 
+        cardUnScale();
+        cardWrapper.classList.remove(cardWrapperSwitch[countEl]);
+        cardWrapper.classList.add(cardWrapperSwitch[0]);
+        countEl = 0;
+        document.removeEventListener("click", handleOutsideClick);
       }
     }
   });
@@ -79,10 +76,13 @@ function createCard(card) {
   cardMain.className = "card";
 
   // Изображение товара
+  const imgItemWrap = document.createElement("div");
+  imgItemWrap.className = "img-item-wrap";
   const cardImg = document.createElement("img");
   cardImg.src = card.images;
   cardImg.alt = card.name;
   cardImg.className = card.name;
+  imgItemWrap.append(cardImg);
 
   // Скидка
   const discountCard = document.createElement("p");
@@ -108,16 +108,22 @@ function createCard(card) {
   });
 
   // Цена товара
+  const priceNameWrap = document.createElement("div");
+  priceNameWrap.className = "price-name-wrap";
   const cardPrice = document.createElement("p");
   cardPrice.textContent = card.price + " byn";
+  cardPrice.style.textDecoration = "line-through";
 
   // Название товара
   const cardItemName = document.createElement("p");
   cardItemName.textContent = card.name;
+  cardItemName.style.textTransform = "capitalize";
+  cardItemName.style.fontSize = "1.25rem";
 
+  priceNameWrap.append(cardPrice, cardItemName);
   // Добавление элементов в HTML
-  cardMain.append(cardImg, discountCard, cardBtn);
-  cardWrapper.append(cardMain, cardPrice, cardItemName);
+  cardMain.append(imgItemWrap, discountCard, cardBtn);
+  cardWrapper.append(cardMain, priceNameWrap);
   cardsWrapper.append(cardWrapper);
 
   // Убедимся, что контейнер карточек не дублируется

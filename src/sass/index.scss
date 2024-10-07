@@ -15,6 +15,35 @@
   scroll-behavior: smooth;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   background-color: #efebf5;
 }
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media(max-width: 1024px){
+  .container{
+    width: 90%;
+  }
+}
+
+@media(max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  .container{
+    width: 90%;
+  }
+}
+// 320px 
+// 480px 
+// 600px 
+// 768px 
+// 1024px
