@@ -1,10 +1,10 @@
 .slider-container {
-  width: 1170px;
-  height: 200px;
+  width: 100%;
+  height: $_200px;
   overflow: hidden;
   position: relative;
-  border-radius: 15px;
-  border: 1px solid #ddd;
+  border-radius: $_15px;
+  border: $_1px solid #ddd;
   margin: auto;
 
   .slider-track {
@@ -23,21 +23,21 @@
 
   .indicators {
     position: absolute;
-    bottom: 10px;
+    bottom: $_10px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
+    gap: $_10px;
     cursor: pointer;
 
     .indicator {
-      width: 10px;
-      height: 10px;
+      width: $_10px;
+      height: $_10px;
       border-radius: 50%;
-      background-color: #ddd;
+      background-color: rgba(221, 221, 221, 0.5);
 
       &.active {
-        background-color: #f0c541;
+        background-color: rgba(240, 197, 65, 0.7);
       }
     }
   }
@@ -46,27 +46,27 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
+    width: $_20px;
+    height: $_20px;
     border-radius: 50%;
-    background-color: #ddd;
+    background-color: rgba(221, 221, 221, 0.5);
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    font-size: $_14px;
 
     &:hover {
-      background-color: #f0c541;
+      background-color: rgba(240, 197, 65, 0.7);
     }
 
     &.left {
-      left: 10px;
+      left: $_10px;
     }
 
     &.right {
-      right: 10px;
+      right: $_10px;
     }
   }
 }

@@ -1,17 +1,17 @@
 @mixin header-button-shape {
   border: none;
-      box-shadow: 0px 1px 2px rgba(0,0,0,0.1), 
-            0px 2px 4px rgba(0,0,0,0.1), 
-            0px 4px 8px rgba(0,0,0,0.1), 
-            0px 8px 16px rgba(0,0,0,0.1);
-  border-radius: 20px;
+      box-shadow: 0px $_1px $_2px rgba(0,0,0,0.1), 
+            0px $_2px $_4px rgba(0,0,0,0.1), 
+            0px $_4px $_8px rgba(0,0,0,0.1), 
+            0px $_8px $_16px rgba(0,0,0,0.1);
+  border-radius: $_20px;
   background: rgb(151, 158, 158);
   background: linear-gradient(
     0deg,
     rgb(114, 72, 159) 0%,
     rgba(215, 172, 223, 0.9) 100%
   );
-  padding: 8px;
+  padding: $_8px;
   transition: 0.4s ease;
   cursor: pointer;
   z-index: 100;
@@ -26,17 +26,17 @@
 @mixin closeBtnCart {
   position: relative;
   border: none;
-  border-radius: 20px;
-  box-shadow: 0px 1px 2px rgba(0,0,0,0.1), 
-            0px 2px 4px rgba(0,0,0,0.1), 
-            0px 4px 8px rgba(0,0,0,0.1), 
-            0px 8px 16px rgba(0,0,0,0.1);
+  border-radius: $_20px;
+  box-shadow: 0px $_1px $_2px rgba(0,0,0,0.1), 
+            0px $_2px $_4px rgba(0,0,0,0.1), 
+            0px $_4px $_8px rgba(0,0,0,0.1), 
+            0px $_8px $_16px rgba(0,0,0,0.1);
   // background: rgb(151, 158, 158);
   background: radial-gradient(
     rgb(205, 85, 87) 0%,
     rgba(123, 38, 38, 0.9) 100%
   );
-  padding: 5px;
+  padding: $_5px;
   transition: 0.4s ease;
   cursor: pointer;
   &:hover {
@@ -47,19 +47,15 @@
   }
 }
 
-@mixin set-on-container {
-  max-width: 1170px;
-  margin: auto;
-}
-
 @mixin flex-container {
   display: flex;
   align-items: stretch;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 @mixin card-style {
-  width: 150px;
+  width: 100%;
+  height: 70%;
   overflow-y: hidden;
 }
 
@@ -67,10 +63,10 @@
   &::before {
     content: '';
     position: absolute;
-    top: 10px;
+    top: $_10px;
     display: block;
-    width: 24px;
-    height: 3px;
+    width: $_24px;
+    height: $_3px;
     background: #1f0d0d;
     transform: rotate(45deg);
   }
@@ -78,10 +74,10 @@
   &::after {
     content: '';
     position: absolute;
-    top: 10px;
+    top: $_10px;
     display: block;
-    width: 24px;
-    height: 3px;
+    width: $_24px;
+    height: $_3px;
     background: #1f0d0d;
     transform: rotate(-45deg);
   }

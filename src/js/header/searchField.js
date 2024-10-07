@@ -53,7 +53,9 @@ searchField.addEventListener("click", (e) => {
     const targetName = element.getAttribute("data-name").toLowerCase();
     console.log(targetName);
     if (targetName.includes(cardName)) {
+      element.className.replace("card-wrapper-click");
       element.click();
+      console.log(element.className);
       searchOptions.style.display = "none";
       searchInput.value = "Search ...";
     }
