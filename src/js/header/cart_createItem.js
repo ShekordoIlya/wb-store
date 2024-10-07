@@ -65,6 +65,10 @@ export function createItem(productItem) {
   itemDeleteBtn.type = "button";
   itemDeleteBtn.className = "item-delete-btn";
 
+  const itemBuyBtn = document.createElement("button");
+  itemBuyBtn.type = "button";
+  itemBuyBtn.className = "item-buy-btn";
+
   // Удаление товара из корзины
   itemDeleteBtn.addEventListener("click", (el) => {
     const index = cartAdded.findIndex((item) => item.id === productItem.id);
@@ -78,7 +82,7 @@ export function createItem(productItem) {
     }
   });
 
-  itemContent.append(imgWrap, itemInfo, itemDeleteBtn);
+  itemContent.append(imgWrap, itemInfo, itemDeleteBtn, itemBuyBtn);
   itemWrap.append(itemContent);
   cartStuff.append(itemWrap);
 

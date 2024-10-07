@@ -140,6 +140,23 @@
   background-position: center;
 }
 
+.item-buy-btn {
+  position: relative;
+  @include closeBtnCart;
+  font-size: 1.125rem;
+  width: $_30px;
+  height: $_30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: block;
+  background-image: url(../img/icons/money-check-solid.svg);
+  background-origin: content-box;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 @media (max-width: 480px) {
   .item-content {
     padding: $_5px 0;
