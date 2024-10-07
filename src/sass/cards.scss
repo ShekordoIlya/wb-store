@@ -6,10 +6,10 @@
 
 .img-item-wrap {
   display: flex;
-width: 100%;
-height: 70%;
-overflow: hidden;
-border-radius: $_30px;
+  width: 100%;
+  height: 70%;
+  overflow: hidden;
+  border-radius: $_30px;
   img {
     width: 100%;
     object-fit: contain;
@@ -23,7 +23,7 @@ p {
 
 .card {
   @include card-style;
-   button {
+  button {
     width: 80%;
     margin-bottom: $_10px;
     @include header-button-shape;
@@ -32,20 +32,24 @@ p {
 
 .card-wrapper {
   width: 15%;
+  &:hover {
+    scale: 1.2;
+    transition: 0.3s;
+    cursor: pointer;
+  }
 }
 
 .card-wrapper,
 .clone {
   border-radius: $_30px;
-  box-shadow: 0px $_1px $_2px rgba(0,0,0,0.1), 
-            0px $_2px $_4px rgba(0,0,0,0.1), 
-            0px $_4px $_8px rgba(0,0,0,0.1), 
-            0px $_8px $_16px rgba(0,0,0,0.1);
+  box-shadow: 0px $_1px $_2px rgba(0, 0, 0, 0.1),
+    0px $_2px $_4px rgba(0, 0, 0, 0.1), 0px $_4px $_8px rgba(0, 0, 0, 0.1),
+    0px $_8px $_16px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
   background-color: antiquewhite;
   .card {
     @include card-style;
-     button {
+    button {
       width: 80%;
       margin-bottom: $_10px;
       @include header-button-shape;
@@ -53,9 +57,9 @@ p {
   }
   .img-item-wrap {
     display: flex;
-  width: 100%;
-  overflow: hidden;
-  border-radius: $_30px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: $_30px;
     img {
       width: 100%;
       object-fit: contain;
@@ -73,15 +77,19 @@ p {
   z-index: 20;
   background-color: antiquewhite;
   transition: 0.3s;
-  box-shadow: 0px $_1px $_2px rgba(0,0,0,0.1), 
-  0px $_2px $_4px rgba(0,0,0,0.1), 
-  0px $_4px $_8px rgba(0,0,0,0.1), 
-  0px $_8px $_16px rgba(0,0,0,0.1);
+  box-shadow: 0px $_1px $_2px rgba(0, 0, 0, 0.1),
+    0px $_2px $_4px rgba(0, 0, 0, 0.1), 0px $_4px $_8px rgba(0, 0, 0, 0.1),
+    0px $_8px $_16px rgba(0, 0, 0, 0.1);
   border-radius: $_30px;
   cursor: pointer;
+  &:hover {
+    scale: 1.2;
+    transition: 0.3s;
+    cursor: pointer;
+  }
   .card {
     @include card-style;
-     button {
+    button {
       width: 80%;
       font-size: $_20px;
       margin-bottom: $_10px;
@@ -90,9 +98,9 @@ p {
   }
   .img-item-wrap {
     display: flex;
-  width: 100%;
-  overflow: hidden;
-  border-radius: $_30px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: $_30px;
     img {
       width: 100%;
       object-fit: contain;
@@ -101,7 +109,7 @@ p {
   }
 }
 
-@media(max-width: 1024px) {
+@media (max-width: 1024px) {
   .cards-wrapper {
     justify-content: space-between;
   }
@@ -110,7 +118,7 @@ p {
   }
 }
 
-@media (max-width:768px){
+@media (max-width: 768px) {
   .cards-wrapper {
     flex-wrap: wrap;
   }
@@ -126,23 +134,26 @@ p {
     width: 60%;
     top: 10%;
     left: 20%;
+    &:hover {
+      scale: 1.2;
+      transition: 0.3s;
+      cursor: pointer;
+    }
   }
 }
 
 @media (max-width: 600px) {
-
   .card-wrapper {
     width: 40%;
     margin-bottom: $_15px;
     &:hover {
-      scale: 1;
+      scale: 1.2;
     }
-
   }
 }
 
-@media(max-width: 480px){
-  .img-item-wrap{
+@media (max-width: 480px) {
+  .img-item-wrap {
     height: 60%;
   }
 }
