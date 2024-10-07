@@ -44,8 +44,11 @@ function createCard(card) {
   const cardWrapperSwitch = ["card-wrapper", "card-wrapper-click"];
   let countEl = 0;
 
-  cardWrapper.addEventListener("click", () => {
-    cardScale();
+  cardWrapper.addEventListener("click", (e) => {
+    e.stopPropagation(); 
+    cardScale(); 
+
+  
     const prev = countEl;
     countEl++;
     if (countEl >= cardWrapperSwitch.length) {
@@ -54,6 +57,20 @@ function createCard(card) {
     }
     cardWrapper.classList.remove(cardWrapperSwitch[prev]);
     cardWrapper.classList.add(cardWrapperSwitch[countEl]);
+
+ 
+    document.addEventListener("click", handleOutsideClick);
+
+    function handleOutsideClick(e) {
+   
+      if (!cardWrapper.contains(e.target)) {
+        cardUnScale(); 
+        cardWrapper.classList.remove(cardWrapperSwitch[countEl]); 
+        cardWrapper.classList.add(cardWrapperSwitch[0]); 
+        countEl = 0; 
+        document.removeEventListener("click", handleOutsideClick); 
+      }
+    }
   });
 
   // Основная карточка
