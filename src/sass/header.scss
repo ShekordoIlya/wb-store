@@ -127,6 +127,8 @@ header {
   position: absolute;
   top: 85%;
   left: 1%;
+  max-height: 120px;
+  overflow: scroll;
 }
 
 .option-item {
@@ -135,8 +137,6 @@ header {
   background-color: #fff;
   background: white;
   list-style: none;
-  overflow: scroll;
-  max-height: 60px;
   box-shadow: 0 0 $_7px rgba(0, 0, 0, 0.16);
   margin: 0;
   padding: $_10px $_15px $_10px;
