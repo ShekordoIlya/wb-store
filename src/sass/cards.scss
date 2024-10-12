@@ -2,6 +2,8 @@
   padding: $_25px 0px;
   text-align: center;
   @include flex-container;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .img-item-wrap {
@@ -19,13 +21,14 @@
 
 p {
   padding: $_10px 0px;
+  overflow: hidden;
 }
 
 .card {
   @include card-style;
   button {
     width: 80%;
-    margin-bottom: $_10px;
+    margin-bottom: 5.625rem;
     @include header-button-shape;
   }
 }
@@ -51,7 +54,7 @@ p {
     @include card-style;
     button {
       width: 80%;
-      margin-bottom: $_10px;
+      margin-bottom: 5.625rem;
       @include header-button-shape;
     }
   }
@@ -82,17 +85,13 @@ p {
     0px $_8px $_16px rgba(0, 0, 0, 0.1);
   border-radius: $_30px;
   cursor: pointer;
-  // &:hover {
-  //   scale: 1.2;
-  //   transition: 0.3s;
-  //   cursor: pointer;
-  // }
+
   .card {
     @include card-style;
     button {
       width: 80%;
       font-size: $_20px;
-      margin-bottom: $_10px;
+      margin-bottom: 5.625rem;
       @include header-button-shape;
     }
   }

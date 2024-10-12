@@ -1,6 +1,8 @@
 import { modal } from "./cart";
 import { body } from "./cart";
-
+// function modalView(content) {
+//   modal.append(content)
+// }
 function showModal() {
   body.classList.add("modal-open");
   modal.style.display = "block";

@@ -1,11 +1,10 @@
 import { updateVisibility } from "./search_updateVisibility";
 import { searchOptions } from "./searchField";
-const productCards = document.querySelectorAll(".card-wrapper");
+// const productCards = document.querySelectorAll(".card-wrapper");
 
 export function displayOptions() {
   const searchValue = this.value.trim().toLowerCase();
   const productCards = document.querySelectorAll(".card-wrapper");
-  console.log(searchValue, "value");
   const li = document.createElement("li");
   li.className = "option-item";
   li.textContent = "";
@@ -24,6 +23,11 @@ export function displayOptions() {
     }
   });
 
+  const neOption = new Array(...productCards).filter((card) => {
+    const productName = card.getAttribute("data-name").toLowerCase();
+    return productName.includes(searchValue);
+  });
+  console.log("New option ----", neOption);
   if (!searchValue) {
     searchOptions.style.display = "none";
     searchOptions.innerHTML = "";
@@ -32,7 +36,7 @@ export function displayOptions() {
   console.log(options, " options");
   searchOptions.innerHTML = "";
 
-  if (options.length === 0) {
+  if (!!options.length) {
     li.textContent = "No matches...";
     searchOptions.append(li);
     searchOptions.style.display = "block";

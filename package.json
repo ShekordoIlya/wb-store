@@ -2,10 +2,10 @@
   "name": "wb-store",
   "version": "1.0.0",
   "description": "Wildberries store",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "dev": "parcel ./src/index.html --no-cache",
-    "build": "parcel build ./src/index.html --no-cache",
+    "build": "parcel build ./src/app.js --no-cache",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ilya Shekordo, Polina Belash, Sergey Mirsaitov",

@@ -1,6 +1,5 @@
 import { showModal, closeModal } from "./modalShowClose";
 import { getItemFromStorage, setItemsInStorage } from "./cart_storageGetSet";
-import { renderCart } from "./cart_addToCart";
 
 const body = document.querySelector("body");
 
