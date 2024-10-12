@@ -29,24 +29,25 @@ export function displayOptions() {
     return;
   }
   console.log(options, " options");
-  // searchOptions.innerHTML = "";
+  searchOptions.innerHTML = "";
 
-  if (!!options.length) {
-    li.textContent = "No matches...";
+  // if (!!options.length) {
+  //   li.textContent = "No matches...";
+  //   searchOptions.append(li);
+  //   searchOptions.style.display = "block";
+  // } else {
+  options.forEach((card) => {
+    const productName = card.getAttribute("data-name").toLowerCase();
+    console.log(productName, "productname");
+    const li = document.createElement("li");
+    li.className = "option-item";
+    li.textContent = productName;
     searchOptions.append(li);
+    console.log(li.textContent, "textcontent");
     searchOptions.style.display = "block";
-  } else {
-    options.forEach((card) => {
-      const productName = card.getAttribute("data-name").toLowerCase();
-      const li = document.createElement("li");
-      li.className = "option-item";
-      li.textContent = productName;
-      searchOptions.append(li);
-      console.log(li.textContent, "textcontent");
-      searchOptions.style.display = "block";
-    });
-    updateVisibility();
-  }
+  });
+  updateVisibility();
+  // }
 }
 
 export { productCards };
