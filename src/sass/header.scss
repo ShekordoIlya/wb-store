@@ -135,6 +135,8 @@ header {
   background-color: #fff;
   background: white;
   list-style: none;
+  overflow: scroll;
+  max-height: 60px;
   box-shadow: 0 0 $_7px rgba(0, 0, 0, 0.16);
   margin: 0;
   padding: $_10px $_15px $_10px;
@@ -167,16 +169,13 @@ header {
   display: none;
 }
 
-
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .modal-open {
     overflow: auto;
   }
-
 }
-@media(max-width: 600px) {
-  
-  .search-field-wrap{
+@media (max-width: 600px) {
+  .search-field-wrap {
     transition: 0.7s ease;
     box-shadow: inset 0 0 6px black;
     width: $_42px;
@@ -190,52 +189,20 @@ header {
 
     .search-button {
       transition: 0.7s ease;
-      top: .725rem;
+      top: 0.725rem;
       right: 0.675rem;
     }
- 
+
     #search-input {
       transition: 0.7s ease;
-        display: none;
-   }
- }
- .active {
-  transition: all 0.7s ease-in-out;
+      display: none;
+    }
+  }
+  .active {
+    transition: all 0.7s ease-in-out;
 
     width: 50%;
 
-  .clear-btn {
-    display: block;
-  }
-  .search-button {
-    transition: 0.7s ease;
-    top: 0.625rem;
-    right: 3.125rem;
-  }
-  #search-input {
-    transition: 0.7s ease;
-    display: block;
-  }
- }
-}
-
-@media(max-width: 340px) {
-  .header-wrap {
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
- 
-  .search-field-wrap{
-    order: 3;
-  }
-  .active {
-    margin-top: $_5px;
-    order: 3;
-    transition: all 0.3s ease-in-out;
-  
-      width: 100%;
-  
     .clear-btn {
       display: block;
     }
@@ -248,5 +215,36 @@ header {
       transition: 0.7s ease;
       display: block;
     }
-   }
+  }
+}
+
+@media (max-width: 340px) {
+  .header-wrap {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .search-field-wrap {
+    order: 3;
+  }
+  .active {
+    margin-top: $_5px;
+    order: 3;
+    transition: all 0.3s ease-in-out;
+
+    width: 100%;
+
+    .clear-btn {
+      display: block;
+    }
+    .search-button {
+      transition: 0.7s ease;
+      top: 0.625rem;
+      right: 3.125rem;
+    }
+    #search-input {
+      transition: 0.7s ease;
+      display: block;
+    }
+  }
 }

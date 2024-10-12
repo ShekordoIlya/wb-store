@@ -72,7 +72,7 @@ function prevSlide() {
   moveSlider(currentIndex);
 }
 
-setInterval(nextSlide, 3000);
+setInterval(nextSlide, 10000);
 
 // Клик по индикаторам
 indicators.addEventListener("click", (e) => {

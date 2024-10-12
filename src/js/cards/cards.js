@@ -4,7 +4,6 @@ import { cardUnScale } from "./cards_scale";
 import { sliderContainer } from "../slider/slider";
 import { moveToCartAnimation } from "./cards_animation.js";
 import { cartButton } from "../header/cart";
-import { handleOutsideClick } from "../header/cart";
 
 // Создание элемента HTML
 const sectionCards = document.createElement("section");
