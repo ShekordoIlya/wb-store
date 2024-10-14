@@ -73,7 +73,7 @@ p {
 }
 
 .card-wrapper-click {
-  scale: 0.8;
+  transform: scale(0.8);
   width: 25%;
   top: 15%;
   margin: auto;
@@ -130,7 +130,7 @@ p {
     }
   }
   .card-wrapper-click {
-    scale: 0.7;
+    transform: scale(0.7);
     width: 60%;
     top: 10%;
     left: 20%;
