@@ -1,6 +1,8 @@
 import { searchField } from "./searchField";
-import { cartButton, modal } from "./cart";
+import { modalWindow, refreshModal, showModal } from "./modalWindow";
+import { openCartModal } from "./cartContent";
 
+const body = document.querySelector("body");
 // create structure(global)
 
 const header = document.createElement("header"),
@@ -25,14 +27,25 @@ logoLink.className = "logo-link";
 logoLink.textContent = "НЕ-Wildberries";
 logo.append(logoLink);
 
+// Кнопка для открытия корзины
+const cartButton = document.createElement("button");
+cartButton.id = "cart-button";
+cartButton.type = "button";
+cartButton.textContent = "Cart";
+cartButton.addEventListener("click", () => {
+  openCartModal();
+});
+
+const cartCount = document.createElement("span");
+cartCount.id = "cart-count";
+cartCount.textContent = "(0)";
+cartButton.appendChild(cartCount);
+
 // add elements in document
-
-const body = document.querySelector("body");
-
 headerWrap.append(logo, searchField, cartButton);
 container.append(headerWrap);
 header.append(container);
 body.prepend(header);
-body.append(modal);
+body.append(modalWindow);
 
-export { header, modal };
+export { header, cartCount, body, cartButton };

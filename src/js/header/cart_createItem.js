@@ -1,4 +1,9 @@
-import { cartAdded, cartStuff, updateCartCount, updateTotalSum } from "./cart";
+import {
+  cartAdded,
+  cartStuff,
+  updateCartCount,
+  updateTotalSum,
+} from "./cartContent";
 import { setItemsInStorage } from "./cart_storageGetSet";
 import { renderCart } from "./cart_addToCart";
 
@@ -65,10 +70,6 @@ export function createItem(productItem) {
   itemDeleteBtn.type = "button";
   itemDeleteBtn.className = "item-delete-btn";
 
-  const itemBuyBtn = document.createElement("button");
-  itemBuyBtn.type = "button";
-  itemBuyBtn.className = "item-buy-btn";
-
   // Удаление товара из корзины
   itemDeleteBtn.addEventListener("click", (el) => {
     const index = cartAdded.findIndex((item) => item.id === productItem.id);
@@ -82,7 +83,7 @@ export function createItem(productItem) {
     }
   });
 
-  itemContent.append(imgWrap, itemInfo, itemDeleteBtn, itemBuyBtn);
+  itemContent.append(imgWrap, itemInfo, itemDeleteBtn);
   itemWrap.append(itemContent);
   cartStuff.append(itemWrap);
 

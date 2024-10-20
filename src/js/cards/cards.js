@@ -1,9 +1,10 @@
 import { addToCart } from "../header/cart_addToCart";
-import { cardScale } from "./cards_scale";
-import { cardUnScale } from "./cards_scale";
+// import { cardScale } from "./cards_scale";
+// import { cardUnScale } from "./cards_scale";
 import { sliderContainer } from "../slider/slider";
 import { moveToCartAnimation } from "./cards_animation.js";
-import { cartButton } from "../header/cart";
+import { cartButton } from "../header/header";
+import { createModalCard } from "./cards_scale.js";
 
 // Создание элемента HTML
 const sectionCards = document.createElement("section");
@@ -42,33 +43,34 @@ function createCard(card) {
   cardWrapper.id = card.id;
   cardWrapper.setAttribute("data-name", `${card.name}`);
 
-  const cardWrapperSwitch = ["card-wrapper", "card-wrapper-click"];
-  let countEl = 0;
+  // const cardWrapperSwitch = ["card-wrapper", "card-wrapper-click"];
+  // let countEl = 0;
 
   cardWrapper.addEventListener("click", (e) => {
     e.stopPropagation();
-    cardScale();
+    createModalCard(card);
+    // cardScale();
 
-    const prev = countEl;
-    countEl++;
-    if (countEl >= cardWrapperSwitch.length) {
-      countEl = 0;
-      cardUnScale();
-    }
-    cardWrapper.classList.remove(cardWrapperSwitch[prev]);
-    cardWrapper.classList.add(cardWrapperSwitch[countEl]);
+    // const prev = countEl;
+    // countEl++;
+    // if (countEl >= cardWrapperSwitch.length) {
+    //   countEl = 0;
+    //   cardUnScale();
+    // }
+    // cardWrapper.classList.remove(cardWrapperSwitch[prev]);
+    // cardWrapper.classList.add(cardWrapperSwitch[countEl]);
 
-    document.addEventListener("click", handleOutsideClick);
+    // document.addEventListener("click", handleOutsideClick);
 
-    function handleOutsideClick(e) {
-      if (!cardWrapper.contains(e.target)) {
-        cardUnScale();
-        cardWrapper.classList.remove(cardWrapperSwitch[countEl]);
-        cardWrapper.classList.add(cardWrapperSwitch[0]);
-        countEl = 0;
-        document.removeEventListener("click", handleOutsideClick);
-      }
-    }
+    // function handleOutsideClick(e) {
+    //   if (!cardWrapper.contains(e.target)) {
+    //     cardUnScale();
+    //     cardWrapper.classList.remove(cardWrapperSwitch[countEl]);
+    //     cardWrapper.classList.add(cardWrapperSwitch[0]);
+    //     countEl = 0;
+    //     document.removeEventListener("click", handleOutsideClick);
+    //   }
+    // }
   });
   // Основная карточка
   const cardMain = document.createElement("div");

@@ -1,6 +1,8 @@
-import { cartAdded, updateCartCount, updateTotalSum } from "./cart";
+import { cartAdded, updateCartCount, updateTotalSum } from "./cartContent";
 import { createItem } from "./cart_createItem";
-import { setItemsInStorage } from "./cart_storageGetSet";
+import { getItemFromStorage, setItemsInStorage } from "./cart_storageGetSet";
+
+let cartAdded = getItemFromStorage();
 
 export function addToCart(card) {
   const productItem = {
@@ -10,6 +12,7 @@ export function addToCart(card) {
     discount: card.discount,
     image: card.images,
     quantity: 1,
+    description: card.description,
   };
 
   let existingProduct = cartAdded.find((item) => item.id === card.id);
@@ -21,6 +24,7 @@ export function addToCart(card) {
     cartAdded.push(productItem);
   }
   setItemsInStorage(cartAdded);
+
   renderCart(cartAdded);
 }
 
