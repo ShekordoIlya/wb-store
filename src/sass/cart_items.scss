@@ -51,56 +51,57 @@
     font-weight: 600;
     letter-spacing: $_1px;
   }
+}
 
-  .quantity-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    .quantity-btn {
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 0.875rem;
-      cursor: pointer;
-      width: $_20px;
-      height: $_20px;
-      font-weight: 600;
-      border: none;
-      border-radius: 10%;
-      box-shadow: 0px $_1px $_2px rgba(0, 0, 0, 0.1),
-        0px $_2px $_4px rgba(0, 0, 0, 0.1), 0px $_4px $_8px rgba(0, 0, 0, 0.1),
-        0px $_8px $_16px rgba(0, 0, 0, 0.1);
-      &:hover {
-        transform: scale(0.94);
-      }
-
-      &:active {
-        transform: scale(0.9);
-      }
-    }
-    #minus {
-      background: round;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-origin: content-box;
-      background-image: url(../img/icons/minus-solid.svg);
-    }
-    #plus {
-      background: round;
-      background-image: url(../img/icons/plus-solid.svg);
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-origin: content-box;
+.quantity-wrap,
+.quantity-modal-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  .quantity-btn {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.875rem;
+    cursor: pointer;
+    width: $_20px;
+    height: $_20px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10%;
+    box-shadow: 0px $_1px $_2px rgba(0, 0, 0, 0.1),
+      0px $_2px $_4px rgba(0, 0, 0, 0.1), 0px $_4px $_8px rgba(0, 0, 0, 0.1),
+      0px $_8px $_16px rgba(0, 0, 0, 0.1);
+    &:hover {
+      transform: scale(0.94);
     }
 
-    #item-number {
-      font-size: 1.25rem;
-      font-weight: 400;
-      letter-spacing: $_1px;
+    &:active {
+      transform: scale(0.9);
     }
+  }
+  #minus {
+    background: round;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-origin: content-box;
+    background-image: url(../img/icons/minus-solid.svg);
+  }
+  #plus {
+    background: round;
+    background-image: url(../img/icons/plus-solid.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: content-box;
+  }
+
+  #item-number {
+    font-size: $_20px;
+    font-weight: 400;
+    letter-spacing: $_1px;
   }
 }
 
