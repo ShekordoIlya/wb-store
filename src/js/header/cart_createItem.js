@@ -1,4 +1,9 @@
-import { cartAdded, cartStuff, updateCartCount, updateTotalSum } from "./cart";
+import {
+  cartAdded,
+  cartStuff,
+  updateCartCount,
+  updateTotalSum,
+} from "./cartContent";
 import { setItemsInStorage } from "./cart_storageGetSet";
 import { renderCart } from "./cart_addToCart";
 
@@ -31,6 +36,8 @@ export function createItem(productItem) {
   const itemTitle = document.createElement("h3");
   itemTitle.className = "item-title";
   itemTitle.textContent = productItem.name;
+  const initPrice = document.createElement("p");
+  initPrice.textContent = productItem.discount + " BYN";
 
   const quantityWrap = document.createElement("div");
   quantityWrap.className = "quantity-wrap";
@@ -59,15 +66,11 @@ export function createItem(productItem) {
   itemPrice.className = "item-price";
   itemPrice.textContent = productItem.price + ` BYN`;
 
-  itemInfo.append(itemTitle, quantityWrap, itemPrice);
+  itemInfo.append(itemTitle, initPrice, quantityWrap, itemPrice);
 
   const itemDeleteBtn = document.createElement("button");
   itemDeleteBtn.type = "button";
   itemDeleteBtn.className = "item-delete-btn";
-
-  const itemBuyBtn = document.createElement("button");
-  itemBuyBtn.type = "button";
-  itemBuyBtn.className = "item-buy-btn";
 
   // Удаление товара из корзины
   itemDeleteBtn.addEventListener("click", (el) => {
@@ -82,7 +85,7 @@ export function createItem(productItem) {
     }
   });
 
-  itemContent.append(imgWrap, itemInfo, itemDeleteBtn, itemBuyBtn);
+  itemContent.append(imgWrap, itemInfo, itemDeleteBtn);
   itemWrap.append(itemContent);
   cartStuff.append(itemWrap);
 

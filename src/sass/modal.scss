@@ -1,29 +1,49 @@
-.modal {
+.modal-window {
   display: none;
-  position: absolute;
-  top: 10vh;
-  left: calc(50% - 15%);
-  height: 50vh;
-  padding: $_10px $_15px;
-  width: 35%;
-  z-index: 99;
-  background-color: #d7c7ec;
-  box-shadow: $_2px $_2px $_6px #6e316e, (-$_2px) (-$_2px) $_6px #6e316e;
-  border-radius: $_15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 20;
+  background-color: rgba(215, 199, 236, 0.4);
+  .modal {
+    position: relative;
+    left: 25%;
+    top: 20vh;
+    width: 50%;
+    height: 70%;
+    box-shadow: $_2px $_2px $_6px #6e316e, (-$_2px) (-$_2px) $_6px #6e316e;
+    border-radius: $_20px;
+    transition: 0.3s ease;
+    background-color: #d7c7ec;
+    padding: $_8px $_15px;
+  }
 }
-.show {
+
+.modal-window.show {
   display: block;
   animation: fadeInScale 0.4s ease-out;
+}
+
+.modal-close-btn {
   position: absolute;
-  top: 10vh;
-  left: calc(50% - 15%);
-  height: 60vh;
-  padding: $_10px $_15px;
-  width: 35%;
-  z-index: 99;
-  background-color: #d7c7ec;
-  box-shadow: $_2px $_2px $_6px #6e316e, (-$_2px) (-$_2px) $_6px #6e316e;
-  border-radius: $_15px;
+  top: $_10px;
+  right: $_10px;
+  cursor: pointer;
+  transition: 0.5s ease;
+  width: $_25px;
+  height: $_25px;
+  z-index: 26;
+  .close-wrap {
+    @include cross;
+  }
+  &:hover {
+    transform: scale(0.94);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
 @include keyframes(fadeInScale) {
@@ -38,98 +58,62 @@
 }
 
 .modal-content {
-  display: flex;
-  flex-direction: column;
   position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cart-content {
+  width: 100%;
   height: 100%;
 }
 
 .cart-head {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 0 0 $_10px;
+  padding: 0 0 $_5px;
+  height: 10%;
+  width: 90%;
   .cart-title {
     font-size: 1.5rem;
     color: #000000;
     font-weight: 600;
   }
-
   .cart-clear-btn {
     @include header-button-shape;
     cursor: pointer;
-  }
-
-  .cart-close-btn {
-    position: absolute;
-    top: $_10px;
-    right: $_10px;
-    cursor: pointer;
-    transition: 0.5s ease;
-    width: $_25px;
-    height: $_25px;
-
-    .close-wrap {
-      @include cross;
-    }
-
-    &:hover {
-      transform: scale(0.94);
-    }
-    .close-wrap {
-      &::before {
-        content: "";
-        position: absolute;
-        top: $_10px;
-        display: block;
-        width: $_24px;
-        height: $_3px;
-        background: #676262;
-        transform: rotate(45deg);
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: $_10px;
-        display: block;
-        width: $_24px;
-        height: $_3px;
-        background: #676262;
-        transform: rotate(-45deg);
-      }
-    }
-
-    &:hover {
-      transform: scale(0.94);
-    }
-
-    &:active {
-      transform: scale(0.9);
-    }
+    width: 20%;
   }
 }
+
 .cart-stuff {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: $_15px 0;
+  padding: $_5px 0;
   width: 100%;
-  height: 100%;
+  height: 80%;
   margin: auto;
   overflow: scroll;
   &::-webkit-scrollbar {
     display: none;
-}
+  }
 }
 
 .total-sum {
-  font-size: 1.125rem;
+  font-size: $_20px;
   color: #000000;
   font-weight: 400;
+  width: 100%;
+  background-color: #d7c7ec;
+  padding: $_3px _3px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-@media(max-width: 1024px) {
+@media (max-width: 1024px) {
   .modal {
     width: 55%;
   }
@@ -141,15 +125,15 @@
     height: 60vh;
   }
 }
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .modal {
     width: 70%;
   }
   .show {
     width: 70%;
-        height: 70vh;
-        top: 20vh;
-        left: 15%;
+    height: 70vh;
+    top: 20vh;
+    left: 15%;
   }
 }
 
@@ -160,24 +144,23 @@
   .cart-head {
     padding: 0 0 $_5px;
   }
- .show {
-
-  .cart-close-btn {
-    top: $_5px;
-    right: 0px;
-    &::before{
+  .show {
+    .cart-close-btn {
       top: $_5px;
       right: 0px;
-    }
-    &::after{
-      top: $_5px;
-      right: 0px;
+      &::before {
+        top: $_5px;
+        right: 0px;
+      }
+      &::after {
+        top: $_5px;
+        right: 0px;
+      }
     }
   }
 }
-}
 
-@media(max-width: 340px) {
+@media (max-width: 340px) {
   .modal {
     width: 100%;
   }
@@ -185,5 +168,87 @@
     width: 100%;
     left: 0;
     top: 15vh;
+  }
+}
+
+// cardContext
+
+.card-content {
+  display: flex;
+  justify-content: space-around;
+  padding: $_25px $_10px;
+  height: 100%;
+  position: relative;
+
+  .content-img-wrap {
+    overflow: hidden;
+    border-radius: $_25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    height: 100%;
+    display: flex;
+    object-fit: contain;
+    background-color: #fff;
+    box-shadow: $_2px $_2px $_6px #615761, (-$_2px) (-$_2px) $_6px #6e316e;
+    .content-img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}
+.card-modal-button {
+  position: absolute;
+  width: 40%;
+  right: $_40px;
+  bottom: $_15px;
+  @include header-button-shape;
+  padding: $_10px;
+  font-size: $_20px;
+  font-weight: 600;
+}
+
+.content-info-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 45%;
+  padding: 0 $_15px;
+  background: rgba(110, 49, 110, 0.3);
+  border-radius: $_20px;
+  .content-title {
+    text-transform: capitalize;
+    font-size: $_40px;
+    line-height: $_40px;
+    font-weight: 600;
+    letter-spacing: $_2px;
+    text-align: center;
+  }
+  .content-descr-wrap {
+    height: 25%;
+    overflow: scroll;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    p {
+      text-transform: capitalize;
+      font-size: $_20px;
+    }
+  }
+  .content-price-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    p {
+      font-size: $_30px;
+      font-weight: 600;
+    }
   }
 }
