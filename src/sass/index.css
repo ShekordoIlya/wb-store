@@ -461,6 +461,7 @@ header {
 }
 .card-content {
   display: flex;
+  justify-content: space-around;
   padding: 1.5625rem 0.625rem;
   height: 100%;
   position: relative;
@@ -471,24 +472,24 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 45%;
   height: 100%;
   display: flex;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   background-color: #fff;
   box-shadow: 0.125rem 0.125rem 0.375rem #615761, -0.125rem -0.125rem 0.375rem #6e316e;
 }
 .card-content .content-img-wrap .content-img {
   width: 100%;
   height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
-.card-content .card-modal-button {
+
+.card-modal-button {
   position: absolute;
-  width: 80%;
-  margin-bottom: 5.625rem;
+  width: 40%;
+  right: 2.5rem;
+  bottom: 0.9375rem;
   border: none;
   box-shadow: 0px 0.0625rem 0.125rem rgba(0, 0, 0, 0.1), 0px 0.125rem 0.25rem rgba(0, 0, 0, 0.1), 0px 0.25rem 0.5rem rgba(0, 0, 0, 0.1), 0px 0.5rem 1rem rgba(0, 0, 0, 0.1);
   border-radius: 1.25rem;
@@ -498,11 +499,14 @@ header {
   transition: 0.4s ease;
   cursor: pointer;
   z-index: 100;
+  padding: 0.625rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
-.card-content .card-modal-button:hover {
+.card-modal-button:hover {
   transform: scale(0.95);
 }
-.card-content .card-modal-button:active {
+.card-modal-button:active {
   transform: scale(0.7);
 }
 
@@ -511,32 +515,42 @@ header {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 50%;
+  width: 45%;
+  padding: 0 0.9375rem;
+  background: rgba(110, 49, 110, 0.3);
+  border-radius: 1.25rem;
 }
 .content-info-wrap .content-title {
   text-transform: capitalize;
-  font-size: 1.875rem;
-  line-height: 1.875rem;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
   font-weight: 600;
   letter-spacing: 0.125rem;
   text-align: center;
 }
 .content-info-wrap .content-descr-wrap {
+  height: 25%;
+  overflow: scroll;
   display: flex;
   align-items: flex-start;
   width: 100%;
+}
+.content-info-wrap .content-descr-wrap::-webkit-scrollbar {
+  display: none;
 }
 .content-info-wrap .content-descr-wrap p {
   text-transform: capitalize;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .content-info-wrap .content-price-wrap {
   display: flex;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 .content-info-wrap .content-price-wrap p {
-  font-size: 1.25rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .item-wrap {
@@ -560,15 +574,13 @@ header {
   width: 30%;
   height: 100%;
   display: flex;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   background-color: #fff;
 }
 .img-wrap img {
   width: 100%;
   height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .item-info {
@@ -735,8 +747,7 @@ header {
 }
 .img-item-wrap img {
   width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   background-color: #fff;
 }
 
@@ -825,8 +836,7 @@ p {
 .card-wrapper .img-item-wrap img,
 .clone .img-item-wrap img {
   width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   background-color: #fff;
 }
 
@@ -876,8 +886,7 @@ p {
 }
 .card-wrapper-click .img-item-wrap img {
   width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   background-color: #fff;
 }
 
@@ -1136,4 +1145,6 @@ body {
     width: 100%;
     padding: 0 0.625rem;
   }
-}/*# sourceMappingURL=index.css.map */
+}
+
+/*# sourceMappingURL=index.css.map */
