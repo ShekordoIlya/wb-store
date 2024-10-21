@@ -76,7 +76,7 @@ function createModalCard(card) {
 
   console.log(card);
 
-  contentPrice.textContent = card.price + " byn";
+  contentPrice.textContent = card.discount + " byn";
   cardModalBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     addToCart(card);
