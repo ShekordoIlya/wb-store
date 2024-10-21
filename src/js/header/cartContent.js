@@ -40,8 +40,22 @@ const paymentSite = document.createElement("div");
 paymentSite.className = "payment-site";
 
 const paymentLink = document.createElement("a");
+// <<<<<<< Cards_Section_Fetching
+// paymentLink.className = "payment-link";
+// paymentLink.textContent = "Buy";
+// paymentLink.target = "_blank";
+// paymentLink.style.color = "#ffffff";
+// paymentLink.style.backgroundColor = "#007bff";
+// paymentLink.style.padding = "10px 20px";
+// paymentLink.style.borderRadius = "5px";
+// paymentLink.style.fontSize = "16px";
+// paymentLink.style.fontWeight = "bold";
+// paymentLink.style.textAlign = "center";
+// paymentLink.style.cursor = "pointer";
+// =======
 paymentLink.textContent = "Pay";
 paymentLink.target = "_blank";
+// >>>>>>> main
 
 const pathToPayment = new URL(
   "http://127.0.0.1:5500/src/paymentSite/index.html",
@@ -52,8 +66,12 @@ paymentLink.href = pathToPayment.href;
 paymentSite.append(paymentLink);
 
 cartHead.append(cartTitle, cartClear);
+// <<<<<<< Cards_Section_Fetching
+// cartContent.append(cartHead, cartStuff, totalSum, paymentSite, paymentLink);
+// =======
 cartFooter.append(totalSum, paymentSite);
 cartContent.append(cartHead, cartStuff, cartFooter);
+// >>>>>>> main
 modalContent.append(cartContent);
 
 let cartAdded = getItemFromStorage();
