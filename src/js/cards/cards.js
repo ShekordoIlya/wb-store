@@ -49,28 +49,6 @@ function createCard(card) {
   cardWrapper.addEventListener("click", (e) => {
     e.stopPropagation();
     createModalCard(card);
-    // cardScale();
-
-    // const prev = countEl;
-    // countEl++;
-    // if (countEl >= cardWrapperSwitch.length) {
-    //   countEl = 0;
-    //   cardUnScale();
-    // }
-    // cardWrapper.classList.remove(cardWrapperSwitch[prev]);
-    // cardWrapper.classList.add(cardWrapperSwitch[countEl]);
-
-    // document.addEventListener("click", handleOutsideClick);
-
-    // function handleOutsideClick(e) {
-    //   if (!cardWrapper.contains(e.target)) {
-    //     cardUnScale();
-    //     cardWrapper.classList.remove(cardWrapperSwitch[countEl]);
-    //     cardWrapper.classList.add(cardWrapperSwitch[0]);
-    //     countEl = 0;
-    //     document.removeEventListener("click", handleOutsideClick);
-    //   }
-    // }
   });
   // Основная карточка
   const cardMain = document.createElement("div");
