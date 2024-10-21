@@ -26,6 +26,9 @@ const cartStuff = document.createElement("div");
 cartStuff.className = "cart-stuff";
 cartStuff.id = "cart-stuff";
 
+const cartFooter = document.createElement("div");
+cartFooter.className = "cart-footer";
+
 const totalSum = document.createElement("div");
 totalSum.className = "total-sum";
 
@@ -34,20 +37,25 @@ totalText.textContent = "Total: 0 BYN";
 totalSum.append(totalText);
 
 const paymentSite = document.createElement("div");
-paymentSite.className = "paymentSite";
+paymentSite.className = "payment-site";
 
 const paymentLink = document.createElement("a");
-paymentLink.className = "payment-link";
-paymentLink.textContent = "Buy";
+// <<<<<<< Cards_Section_Fetching
+// paymentLink.className = "payment-link";
+// paymentLink.textContent = "Buy";
+// paymentLink.target = "_blank";
+// paymentLink.style.color = "#ffffff";
+// paymentLink.style.backgroundColor = "#007bff";
+// paymentLink.style.padding = "10px 20px";
+// paymentLink.style.borderRadius = "5px";
+// paymentLink.style.fontSize = "16px";
+// paymentLink.style.fontWeight = "bold";
+// paymentLink.style.textAlign = "center";
+// paymentLink.style.cursor = "pointer";
+// =======
+paymentLink.textContent = "Pay";
 paymentLink.target = "_blank";
-paymentLink.style.color = "#ffffff";
-paymentLink.style.backgroundColor = "#007bff";
-paymentLink.style.padding = "10px 20px";
-paymentLink.style.borderRadius = "5px";
-paymentLink.style.fontSize = "16px";
-paymentLink.style.fontWeight = "bold";
-paymentLink.style.textAlign = "center";
-paymentLink.style.cursor = "pointer";
+// >>>>>>> main
 
 const pathToPayment = new URL(
   "http://127.0.0.1:5500/src/paymentSite/index.html",
@@ -58,7 +66,12 @@ paymentLink.href = pathToPayment.href;
 paymentSite.append(paymentLink);
 
 cartHead.append(cartTitle, cartClear);
-cartContent.append(cartHead, cartStuff, totalSum, paymentSite, paymentLink);
+// <<<<<<< Cards_Section_Fetching
+// cartContent.append(cartHead, cartStuff, totalSum, paymentSite, paymentLink);
+// =======
+cartFooter.append(totalSum, paymentSite);
+cartContent.append(cartHead, cartStuff, cartFooter);
+// >>>>>>> main
 modalContent.append(cartContent);
 
 let cartAdded = getItemFromStorage();
