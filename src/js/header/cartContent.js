@@ -33,8 +33,20 @@ const totalText = document.createElement("p");
 totalText.textContent = "Total: 0 BYN";
 totalSum.append(totalText);
 
+const paymentSite = document.createElement("div");
+paymentSite.className = "paymentSite";
+
+const paymentLink = document.createElement("a"); 
+paymentLink.textContent = "Pay";
+paymentLink.target = "_blank";  
+paymentLink.style.textDecoration = "none"; 
+const pathToPayment = new URL("http://127.0.0.1:5500/src/paymentSite/index.html", window.location.href);
+paymentLink.href = pathToPayment.href;
+paymentSite.append(paymentLink);
+
+
 cartHead.append(cartTitle, cartClear);
-cartContent.append(cartHead, cartStuff, totalSum);
+cartContent.append(cartHead, cartStuff, totalSum, paymentSite,paymentLink);
 modalContent.append(cartContent);
 
 let cartAdded = getItemFromStorage();
